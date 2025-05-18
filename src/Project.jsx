@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
 import {  FaExternalLinkAlt } from "react-icons/fa";
 import AOS from 'aos';
-
+import Asha from './assets/Asha.png'
+import gdg from './assets/gdg.png'
+import port from './assets/port.png'
+import todo from './assets/todo.png'
 
 const projects = [
   {
     title: "READ ME",
     description:
       "ReadMe is a clean and responsive website designed to showcase and share essential information or content interactively. Built with HTML, CSS, and JavaScript, it features a user-friendly layout and visually appealing design.",
-    image: "./src/assets/todo.png", // Replace with your local image path
+    image: todo , 
     borderColor: "border-indigo-500",
     
     liveLink: "https://readmeee.netlify.app/",
@@ -17,7 +20,7 @@ const projects = [
     title: "PORTFOLIO",
     description:
       "This was my first portfolio project, built using HTML, CSS, and JavaScript. It features a clean, responsive layout with smooth navigation and interactive elements.",
-    image: "./src/assets/port.png",
+    image: port ,
     borderColor: "border-indigo-500",
     
     liveLink: "https://amrutha-gopalakrishnan.netlify.app/",
@@ -26,7 +29,7 @@ const projects = [
     title: "EDUCRAFT",
     description:
       "Educraft Empower is an educational platform designed to provide accessible, AI-powered learning experiences with video lessons and interactive features.",
-    image: "./src/assets/gdg.png",
+    image: gdg ,
     borderColor: "border-indigo-500",
     
     liveLink: "https://educraft-empower.vercel.app/",
@@ -35,7 +38,7 @@ const projects = [
     title: "ASHA AI",
     description:
       "A career support platform featuring an AI-powered chatbot for real-time guidance, dynamic job listings with filters, user profile management, and secure login/signup system.",
-    image: "./src/assets/Asha.png",
+    image: Asha ,
     borderColor: "border-indigo-500",
 
     liveLink: "https://asha-ai.vercel.app/",
