@@ -8,7 +8,7 @@ const projects = [
     title: "READ ME",
     description:
       "ReadMe is a clean and responsive website designed to showcase and share essential information or content interactively. Built with HTML, CSS, and JavaScript, it features a user-friendly layout and visually appealing design.",
-    image: "src/assets/todo.png", // Replace with your local image path
+    image: "./src/assets/todo.png", // Replace with your local image path
     borderColor: "border-indigo-500",
     
     liveLink: "https://readmeee.netlify.app/",
@@ -17,7 +17,7 @@ const projects = [
     title: "PORTFOLIO",
     description:
       "This was my first portfolio project, built using HTML, CSS, and JavaScript. It features a clean, responsive layout with smooth navigation and interactive elements.",
-    image: "/src/assets/port.png",
+    image: "./src/assets/port.png",
     borderColor: "border-indigo-500",
     
     liveLink: "https://amrutha-gopalakrishnan.netlify.app/",
@@ -26,7 +26,7 @@ const projects = [
     title: "EDUCRAFT",
     description:
       "Educraft Empower is an educational platform designed to provide accessible, AI-powered learning experiences with video lessons and interactive features.",
-    image: "/src/assets/gdg.png",
+    image: "./src/assets/gdg.png",
     borderColor: "border-indigo-500",
     
     liveLink: "https://educraft-empower.vercel.app/",
@@ -35,7 +35,7 @@ const projects = [
     title: "ASHA AI",
     description:
       "A career support platform featuring an AI-powered chatbot for real-time guidance, dynamic job listings with filters, user profile management, and secure login/signup system.",
-    image: "/src/assets/Asha.png",
+    image: "./src/assets/Asha.png",
     borderColor: "border-indigo-500",
 
     liveLink: "https://asha-ai.vercel.app/",
