@@ -109,7 +109,7 @@ const Contact = () => {
 
       </div>
 
-     <ul className="flex gap-10 text-white justify-center items-center font-medium text-sm mt-45">
+     <ul className="flex gap-10 text-white justify-center items-center font-medium text-sm mt-40">
             <li className="cursor-pointer hover:text-purple-400"><a href='#home'>Home</a></li>
             <li className="cursor-pointer hover:text-purple-400"><a href='#about'>About</a></li>
             <li className="cursor-pointer hover:text-purple-400"><a href='#skills'>Skills</a></li>

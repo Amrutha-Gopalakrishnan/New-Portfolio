@@ -11,7 +11,7 @@ const Skills = () => {
 
   return (
     <div className=" text-white py-12 px-6" id='skills'>
-      <h2 className="text-4xl font-bold text-center mb-12">SKILLS</h2>
+      <h2 className="text-4xl font-bold text-center mb-9">SKILLS</h2>
 
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16" data-aos="fade-up">
         <div className="border border-pink-400 rounded-xl p-6 bg-black hover:shadow-lg transition duration-300">
@@ -29,10 +29,10 @@ const Skills = () => {
         </div>
       </div>
 
-      <h2 className="text-3xl font-bold text-center mb-6">TECH STACK & TOOLS</h2>
+      <h2 className="text-3xl font-bold text-center mb-8">TECH STACK & TOOLS</h2>
 
-      <div className="border border-yellow-400 rounded-xl p-6 max-w-5xl mx-auto" data-aos="fade-up">
-        <div className="grid  grid-cols-4 md:grid-cols-4 gap-6 justify-items-center text-3xl text-white">
+      <div className="border border-yellow-400 rounded-xl p-4 max-w-5xl mx-auto mb-15" data-aos="fade-up">
+        <div className="grid  grid-cols-4 md:grid-cols-4 gap-6 justify-items-center text-3xl text-white ">
          
          <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#1b2236] shadow-md">
             <img
