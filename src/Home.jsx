@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import Resume from './assets/Resume.pdf'
 
 function Home() {
   const roles = ["Frontend Developer", "UI/UX Designer"];
@@ -35,7 +36,7 @@ function Home() {
   }, [charIndex, deleting, index, roles]);
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center mb-2 bg-cover bg-center" id='home'>
+    <section className="min-h-screen flex flex-col items-center justify-center  bg-cover bg-center" id='home'>
       <img
         src="./profile1.jpg"
         alt="profile"
@@ -61,9 +62,9 @@ function Home() {
           <span className="">Code meets Creativity</span>
         </p>
 
-        <div className="mt-6 flex gap-4 justify-center flex-wrap mb-4">
+        <div className="mt-6 flex gap-4 justify-center flex-wrap mb-10">
           <button className="bg-gray-800 hover:bg-purple-600 px-4 py-2 rounded-lg text-white text-sm font-medium transition-transform hover:-translate-y-1">
-            <a href='src/assets/Resume.pdf' download={true}>Download CV</a>
+            <a href={Resume} download={true}>Download CV</a>
           </button>
           <button className="bg-gray-800 hover:bg-purple-600 px-4 py-2 rounded-lg text-white text-sm font-medium transition-transform hover:-translate-y-1">
              <a href='#about'>Know Me</a>
