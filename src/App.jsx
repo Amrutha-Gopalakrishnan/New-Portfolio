@@ -7,6 +7,7 @@ import Skills from './Skills';
 import Projects from './Project';
 import Education from './Education';
 import Contact from './Contact'
+import Tech from './Tech'
 
 
 function App() {
@@ -23,23 +24,16 @@ function App() {
 
           <About />
 
-        <div style={{backgroundImage: `url("/background.png")`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                height: "100vh"}}>
-                <Skills />
-        </div>
+      
+         <Skills />
+        
+        <Tech />
+
+       
 
         <Projects />
-
-        <div style={{backgroundImage: `url("/background.png")`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                height: "100vh"}}>
-                <Education />
-        </div>
         
-
+          <Education />
         
         <Contact />
 
