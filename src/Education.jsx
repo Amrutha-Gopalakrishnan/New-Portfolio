@@ -69,10 +69,12 @@
 import React, { useEffect } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import scool from './assets/scool.png' 
+import clg from './assets/clg.jped'
 
 const educationData = [
   {
-    image: "src/assets/clg.jpeg",
+    image: scool,
     institution: "SRI RAMAKRISHNA COLLEGE OF ARTS & SCIENCE, COIMBATORE",
     course: "Bachelor of Science – BSc Computer Science with Data Analytics",
     duration: "2023 - 2026",
@@ -80,7 +82,7 @@ const educationData = [
     borderColor: "border-yellow-400",
   },
   {
-    image: "src/assets/scool.png",
+    image: clg,
     institution: "SRI RAMAKRISHNA MATRICULATION HIGHER SECONDARY SCHOOL, COIMBATORE",
     course: "ARTS with CA",
     duration: "2021 - 2023",
