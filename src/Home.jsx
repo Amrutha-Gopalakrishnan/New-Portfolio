@@ -148,7 +148,7 @@ function Home() {
 
         <div className="mt-6 flex gap-4 justify-center flex-wrap mb-10">
           <a
-            href="https://docs.google.com/document/d/1XNqCHrlEbxwHNTxCVGVtZ3XNEipRmwnj/edit?usp=sharing&ouid=115580187214025059968&rtpof=true&sd=true"
+            href="https://docs.google.com/document/d/1JmbtB0twJLrNdhxvBetPE2my0lbaWa5h/edit?usp=sharing&ouid=115580187214025059968&rtpof=true&sd=true"
             download={true}
              target="_blank"
             rel="noopener noreferrer"
