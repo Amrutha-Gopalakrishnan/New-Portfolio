@@ -82,7 +82,6 @@
 
 
 import React, { useEffect, useState } from 'react';
-import Resume from './assets/Resume.pdf';
 
 function Home() {
   const roles = ["Frontend Developer", "UI/UX Designer"];
@@ -149,8 +148,10 @@ function Home() {
 
         <div className="mt-6 flex gap-4 justify-center flex-wrap mb-10">
           <a
-            href={Resume}
+            href="https://docs.google.com/document/d/1XNqCHrlEbxwHNTxCVGVtZ3XNEipRmwnj/edit?usp=sharing&ouid=115580187214025059968&rtpof=true&sd=true"
             download={true}
+             target="_blank"
+            rel="noopener noreferrer"
             className="bg-gray-800 hover:bg-purple-600 px-4 py-2 rounded-lg text-white text-sm font-medium transition-transform hover:-translate-y-1"
           >
             Download CV
