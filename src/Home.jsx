@@ -124,7 +124,7 @@ function Home() {
       <img
         src="./profile1.jpg"
         alt="profile"
-        className="w-40 h-40 sm:w-60 sm:h-60 md:w-65 md:h-65 lg:w-70 lg:h-70 rounded-3xl object-cover shadow-md"
+        className="sm:w-100 sm:h-100 md:w-65 md:h-65 lg:w-70 lg:h-70 rounded-3xl object-cover shadow-md"
       />
 
       <div className="text-center mt-6 w-full max-w-2xl">
