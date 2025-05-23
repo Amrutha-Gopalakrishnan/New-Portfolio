@@ -5,7 +5,7 @@ import Asha from './assets/Asha.png'
 import gdg from './assets/gdg.png'
 import port from './assets/port.png'
 import todo from './assets/todo.png'
-import cash from './assets/cash.png'
+import cash from './assets/Cash.png'
 
 const projects = [
   {
