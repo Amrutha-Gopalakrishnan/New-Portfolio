@@ -5,7 +5,7 @@ import Asha from './assets/Asha.png'
 import gdg from './assets/gdg.png'
 import port from './assets/port.png'
 import todo from './assets/todo.png'
-import Cash from './assets/cash.png'
+import cash from './assets/cash.png'
 
 const projects = [
   {
@@ -41,13 +41,12 @@ const projects = [
       "A career support platform featuring an AI-powered chatbot for real-time guidance, dynamic job listings with filters, user profile management, and secure login/signup system.",
     image: Asha ,
     borderColor: "border-indigo-500",
-
     liveLink: "https://asha-ai.vercel.app/",
   },
   {
     title: "CASHCROW",
     description:"CashCrow is a modern web platform designed to revolutionize waste management by combining technology with incentives. The platform educates users about proper waste segregation, rewards sustainable practices, and connects communities with recycling solutions. With a clean and intuitive user interface, CashCrow promotes environmental responsibility and digital engagement through gamified experiences and informative content.",
-    image: Cash ,
+    image: cash ,
     borderColor: "border-indigo-500",
     
     liveLink: "https://cashcrow.netlify.app/",
