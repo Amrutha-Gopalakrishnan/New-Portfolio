@@ -84,7 +84,7 @@
 import React, { useEffect, useState } from 'react';
 
 function Home() {
-  const roles = ["Frontend Developer", "UI/UX Designer"];
+  const roles = ["Frontend Developer", "UI/UX Designer", "No Code Developer"];
   const [text, setText] = useState('');
   const [index, setIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -124,7 +124,7 @@ function Home() {
       <img
         src="./profile1.jpg"
         alt="profile"
-        className="w-40 h-40 sm:w-50 sm:h-50 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-3xl object-cover shadow-md"
+        className="w-40 h-40 sm:w-60 sm:h-60 md:w-65 md:h-65 lg:w-70 lg:h-70 rounded-3xl object-cover shadow-md"
       />
 
       <div className="text-center mt-6 w-full max-w-2xl">
