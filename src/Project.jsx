@@ -6,39 +6,33 @@ import gdg from './assets/gdg.png'
 import port from './assets/port.png'
 import todo from './assets/todo.png'
 import cash from './assets/Cash.png'
+import Blood from './assets/Blood.png'
 
 const projects = [
   {
     title: "READ ME",
-    description:
-      "ReadMe is a clean and responsive website designed to showcase and share essential information or content interactively. Built with HTML, CSS, and JavaScript, it features a user-friendly layout and visually appealing design.",
+    description: "ReadMe is a responsive and visually engaging website built with HTML, CSS, and JavaScript. Designed to present essential information in a clear and interactive format, it features a user-friendly layout, smooth transitions, and a focus on readability. The site serves as a clean and effective platform for content sharing and digital presentation.",
     image: todo , 
     borderColor: "border-indigo-500",
-    
     liveLink: "https://readmeee.netlify.app/",
   },
   {
     title: "PORTFOLIO",
-    description:
-      "This was my first portfolio project, built using HTML, CSS, and JavaScript. It features a clean, responsive layout with smooth navigation and interactive elements.",
+    description: "This is my first personal portfolio website, built from scratch using HTML, CSS, and JavaScript. It features a clean, fully responsive layout, smooth scrolling navigation, and interactive elements that showcase my projects, skills, and background. The site reflects my foundational web development abilities and serves as a professional online presence.",
     image: port ,
     borderColor: "border-indigo-500",
-    
     liveLink: "https://amrutha-gopalakrishnan.netlify.app/",
   },
   {
     title: "EDUCRAFT",
-    description:
-      "Educraft Empower is an educational platform designed to provide accessible, AI-powered learning experiences with video lessons and interactive features.",
+    description:"Educraft Empower is an AI-enhanced educational platform designed to deliver accessible and engaging learning experiences. It features structured video lessons, interactive tools, and intelligent content suggestions to support diverse learning styles. With a clean, intuitive interface and responsive design, the platform aims to make quality education available anytime, anywhere.",
     image: gdg ,
     borderColor: "border-indigo-500",
-    
     liveLink: "https://educraft-empower.vercel.app/",
   },
   {
     title: "ASHA AI",
-    description:
-      "A career support platform featuring an AI-powered chatbot for real-time guidance, dynamic job listings with filters, user profile management, and secure login/signup system.",
+    description:"Asha AI is an intelligent career support platform that integrates an AI-powered chatbot for real-time career guidance, personalized recommendations, and resources. It features dynamic job listings with advanced filtering, user authentication, profile management, and a clean, responsive UI. Designed to empower users with instant insights and streamlined job discovery, Asha AI bridges technology and career development in a user-centric experience.",
     image: Asha ,
     borderColor: "border-indigo-500",
     liveLink: "https://asha-ai.vercel.app/",
@@ -48,8 +42,14 @@ const projects = [
     description:"CashCrow is a modern web platform designed to revolutionize waste management by combining technology with incentives. The platform educates users about proper waste segregation, rewards sustainable practices, and connects communities with recycling solutions. With a clean and intuitive user interface, CashCrow promotes environmental responsibility and digital engagement through gamified experiences and informative content.",
     image: cash ,
     borderColor: "border-indigo-500",
-    
     liveLink: "https://cashcrow.netlify.app/",
+  },
+  {
+    title: "BLOOD BUMS",
+    description: "BloodBurns is a bold and immersive fitness web platform designed to inspire and engage users through high-impact visuals and motivational content. The site promotes full-body workouts and personal training services with a powerful UI, compelling testimonials, and a call-to-action-driven layout. Featuring responsive design, smooth animations, and a striking 'Contact Us' section, BloodBurns delivers a premium digital experience for fitness enthusiasts and potential clients alike.",
+    image: Blood ,
+    borderColor: "border-indigo-500",
+    liveLink: "https://bloodbums.netlify.app/",
   }
 ];
 
