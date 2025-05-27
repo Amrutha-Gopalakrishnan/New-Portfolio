@@ -35,7 +35,7 @@ const projects = [
     description:"Asha AI is an intelligent career support platform that integrates an AI-powered chatbot for real-time career guidance, personalized recommendations, and resources. It features dynamic job listings with advanced filtering, user authentication, profile management, and a clean, responsive UI. Designed to empower users with instant insights and streamlined job discovery, Asha AI bridges technology and career development in a user-centric experience.",
     image: Asha ,
     borderColor: "border-indigo-500",
-    liveLink: "https://asha-ai.vercel.app/",
+    liveLink: "https://ashaa.netlify.app/",
   },
   {
     title: "CASHCROW",
