@@ -7,6 +7,8 @@ import port from './assets/port.png'
 import todo from './assets/todo.png'
 import cash from './assets/Cash.png'
 import Blood from './assets/Blood.png'
+import simbu from './assets/simbu.png'
+import SD from './assets/SD.png'
 
 const projects = [
   {
@@ -50,6 +52,20 @@ const projects = [
     image: Blood ,
     borderColor: "border-indigo-500",
     liveLink: "https://bloodbums.netlify.app/",
+  },
+  {
+    title: "SILAMBARSAN",
+    description: "This sample portfolio for actor Silambarasan TR (Simbu) showcases his cinematic journey, iconic performances, and multifaceted talent as an actor, singer, and director. Designed with a modern and elegant interface, the site highlights Simbu's filmography, achievements, and public presence, offering fans and industry professionals a dynamic glimpse into his legacy and impact on Tamil cinema.", 
+    image: simbu ,
+    borderColor: "border-indigo-500",
+    liveLink: "https://amruthagopal16.wixsite.com/simbu",
+  },
+  {
+    title: "SKILL DRAGON EDITING",
+    description: "This video editing interface is a sleek and intuitive UI design built for modern creators. With a focus on user-friendly controls, streamlined workflows, and real-time preview capabilities, the layout empowers users to easily trim, cut, layer, and enhance videos. The clean dashboard, timeline editor, and smart tool placement ensure an efficient editing experience that balances functionality with aesthetics—ideal for both beginners and professionals.", 
+    image: SD ,
+    borderColor: "border-indigo-500",
+    liveLink: "https://www.figma.com/proto/La7YL2Oi8SODyCVld8iZr4/Untitled?node-id=11-18&t=SIcn9vtW8QyhLLNG-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=11%3A18",
   }
 ];
 
