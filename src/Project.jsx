@@ -4,20 +4,13 @@ import AOS from 'aos';
 import Asha from './assets/Asha.png'
 import gdg from './assets/gdg.png'
 import port from './assets/port.png'
-import todo from './assets/todo.png'
 import cash from './assets/Cash.png'
 import Blood from './assets/Blood.png'
 import simbu from './assets/simbu.png'
 import SD from './assets/SD.png'
+import Sahayak from './assets/Sahayak.png'
 
 const projects = [
-  {
-    title: "READ ME",
-    description: "ReadMe is a responsive and visually engaging website built with HTML, CSS, and JavaScript. Designed to present essential information in a clear and interactive format, it features a user-friendly layout, smooth transitions, and a focus on readability. The site serves as a clean and effective platform for content sharing and digital presentation.",
-    image: todo , 
-    borderColor: "border-indigo-500",
-    liveLink: "https://readmeee.netlify.app/",
-  },
   {
     title: "PORTFOLIO",
     description: "This is my first personal portfolio website, built from scratch using HTML, CSS, and JavaScript. It features a clean, fully responsive layout, smooth scrolling navigation, and interactive elements that showcase my projects, skills, and background. The site reflects my foundational web development abilities and serves as a professional online presence.",
@@ -40,13 +33,6 @@ const projects = [
     liveLink: "https://ashaa.netlify.app/",
   },
   {
-    title: "CASHCROW",
-    description:"CashCrow is a modern web platform designed to revolutionize waste management by combining technology with incentives. The platform educates users about proper waste segregation, rewards sustainable practices, and connects communities with recycling solutions. With a clean and intuitive user interface, CashCrow promotes environmental responsibility and digital engagement through gamified experiences and informative content.",
-    image: cash ,
-    borderColor: "border-indigo-500",
-    liveLink: "https://cashcrow.netlify.app/",
-  },
-  {
     title: "BLOOD BUMS",
     description: "BloodBurns is a bold and immersive fitness web platform designed to inspire and engage users through high-impact visuals and motivational content. The site promotes full-body workouts and personal training services with a powerful UI, compelling testimonials, and a call-to-action-driven layout. Featuring responsive design, smooth animations, and a striking 'Contact Us' section, BloodBurns delivers a premium digital experience for fitness enthusiasts and potential clients alike.",
     image: Blood ,
@@ -66,6 +52,13 @@ const projects = [
     image: SD ,
     borderColor: "border-indigo-500",
     liveLink: "https://www.figma.com/proto/La7YL2Oi8SODyCVld8iZr4/Untitled?node-id=11-18&t=SIcn9vtW8QyhLLNG-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=11%3A18",
+  },
+  {
+    title: "SAHAYAK",
+    description: "Sahayak is an AI-powered, offline-first Progressive Web App designed for multi-grade classrooms in rural India. Built to support teachers with multilingual and culturally contextual content, it features intelligent lesson planning, automated assessments, and seamless resource sharing, even in low-connectivity environments.",
+    image: Sahayak , 
+    borderColor: "border-indigo-500",
+    liveLink:"https://sahayak-agentic-ai.web.app/",
   }
 ];
 
