@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import {  FaExternalLinkAlt } from "react-icons/fa";
 import AOS from 'aos';
 import Asha from './assets/Asha.png'
-import gdg from './assets/gdg.png'
+// import gdg from './assets/gdg.png'
 import port from './assets/port.png'
 import cash from './assets/Cash.png'
 import Blood from './assets/Blood.png'
@@ -18,13 +18,13 @@ const projects = [
     borderColor: "border-indigo-500",
     liveLink: "https://amrutha-gopalakrishnan.netlify.app/",
   },
-  {
-    title: "EDUCRAFT",
-    description:"Educraft Empower is an AI-enhanced educational platform designed to deliver accessible and engaging learning experiences. It features structured video lessons, interactive tools, and intelligent content suggestions to support diverse learning styles. With a clean, intuitive interface and responsive design, the platform aims to make quality education available anytime, anywhere.",
-    image: gdg ,
-    borderColor: "border-indigo-500",
-    liveLink: "https://educraft-empower.vercel.app/",
-  },
+  // {
+  //   title: "EDUCRAFT",
+  //   description:"Educraft Empower is an AI-enhanced educational platform designed to deliver accessible and engaging learning experiences. It features structured video lessons, interactive tools, and intelligent content suggestions to support diverse learning styles. With a clean, intuitive interface and responsive design, the platform aims to make quality education available anytime, anywhere.",
+  //   image: gdg ,
+  //   borderColor: "border-indigo-500",
+  //   liveLink: "https://educraft-empower.vercel.app/",
+  // },
   {
     title: "ASHA AI",
     description:"Asha AI is an intelligent career support platform that integrates an AI-powered chatbot for real-time career guidance, personalized recommendations, and resources. It features dynamic job listings with advanced filtering, user authentication, profile management, and a clean, responsive UI. Designed to empower users with instant insights and streamlined job discovery, Asha AI bridges technology and career development in a user-centric experience.",
