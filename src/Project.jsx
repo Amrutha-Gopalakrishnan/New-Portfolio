@@ -3,21 +3,22 @@ import {  FaExternalLinkAlt } from "react-icons/fa";
 import AOS from 'aos';
 import Asha from './assets/Asha.png'
 // import gdg from './assets/gdg.png'
-import port from './assets/port.png'
+// import port from './assets/port.png'
 import cash from './assets/Cash.png'
 import Blood from './assets/Blood.png'
 import simbu from './assets/simbu.png'
 import SD from './assets/SD.png'
 import Sahayak from './assets/Sahayak.png'
+import Trip from './assets/tripraja.png'
 
 const projects = [
-  {
-    title: "PORTFOLIO",
-    description: "This is my first personal portfolio website, built from scratch using HTML, CSS, and JavaScript. It features a clean, fully responsive layout, smooth scrolling navigation, and interactive elements that showcase my projects, skills, and background. The site reflects my foundational web development abilities and serves as a professional online presence.",
-    image: port ,
-    borderColor: "border-indigo-500",
-    liveLink: "https://amrutha-gopalakrishnan.netlify.app/",
-  },
+  // {
+  //   title: "PORTFOLIO",
+  //   description: "This is my first personal portfolio website, built from scratch using HTML, CSS, and JavaScript. It features a clean, fully responsive layout, smooth scrolling navigation, and interactive elements that showcase my projects, skills, and background. The site reflects my foundational web development abilities and serves as a professional online presence.",
+  //   image: port ,
+  //   borderColor: "border-indigo-500",
+  //   liveLink: "https://amrutha-gopalakrishnan.netlify.app/",
+  // },
   // {
   //   title: "EDUCRAFT",
   //   description:"Educraft Empower is an AI-enhanced educational platform designed to deliver accessible and engaging learning experiences. It features structured video lessons, interactive tools, and intelligent content suggestions to support diverse learning styles. With a clean, intuitive interface and responsive design, the platform aims to make quality education available anytime, anywhere.",
@@ -59,6 +60,13 @@ const projects = [
     image: Sahayak , 
     borderColor: "border-indigo-500",
     liveLink:"https://sahayak-agentic-ai.web.app/",
+  },
+      {
+    title: "MY TRIP RAJA",
+    description:"MyTripRaja is an online travel platform dedicated to providing seamless travel experiences across India. Designed for both leisure and business travelers, it offers curated tour packages, real-time hotel bookings, and customizable itineraries to major destinations. With a user-friendly interface and multilingual support, MyTripRaja enables quick comparison of prices, local experiences, and instant booking confirmations. The platform features trusted payment gateways, responsive customer support, and regularly updated deals to ensure affordable and memorable journeys for everyone.",
+    image: Trip ,
+    borderColor: "border-indigo-500",
+    liveLink: "https://www.mytripraja.com/",
   }
 ];
 
