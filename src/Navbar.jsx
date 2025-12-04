@@ -24,6 +24,10 @@ function Navbar() {
           <li className="hover:text-purple-400"><a href="#about">About</a></li>
           <li className="hover:text-purple-400"><a href="#skills">Skills</a></li>
           <li className="hover:text-purple-400"><a href="#projects">Projects</a></li>
+          <li className="hover:text-purple-400"><a href="#experience">Experience</a></li>
+          <li className="hover:text-purple-400"><a href="#certificate">Certifications</a></li>
+          <li className="hover:text-purple-400"><a href="#achievements">Achievements</a></li>
+          <li className="hover:text-purple-400"><a href="#publications">Publications</a></li>
           <li className="hover:text-purple-400"><a href="#education">Education</a></li>
           <li className="hover:text-purple-400"><a href="#contact">Contact</a></li>
         </ul>
@@ -52,28 +56,42 @@ function Navbar() {
 
       </nav>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <ul className="flex flex-col items-center gap-4 bg-[#1e1e2f] py-4 mt-2 mx-4 rounded-lg shadow-md text-white font-medium text-sm md:hidden">
-          <li className="hover:text-purple-400"><a href="#home" onClick={() => setMenuOpen(false)}>Home</a></li>
-          <li className="hover:text-purple-400"><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
-          <li className="hover:text-purple-400"><a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a></li>
-          <li className="hover:text-purple-400"><a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a></li>
-          <li className="hover:text-purple-400"><a href="#education" onClick={() => setMenuOpen(false)}>Education</a></li>
-          <li className="hover:text-purple-400"><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
-          <li>
-            <a
-              href="https://github.com/Amrutha-Gopalakrishnan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xl hover:text-purple-400"
-            >
-              <FaGithub />
-              
-            </a>
-          </li>
-        </ul>
-      )}
+{menuOpen && (
+  <ul className="flex flex-col items-center gap-4 bg-[#0a0a0a] py-6 mt-3 mx-4 
+  rounded-2xl shadow-2xl text-white font-medium text-base border border-gray-700 md:hidden">
+
+    <li><a href="#home" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">Home</a></li>
+    <li><a href="#about" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">About</a></li>
+    <li><a href="#skills" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">Skills</a></li>
+    <li><a href="#projects" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">Projects</a></li>
+    <li><a href="#experience" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">Experience</a></li>
+    <li><a href="#certificate" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">Certifications</a></li>
+    <li><a href="#achievements" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">Achievements</a></li>
+    <li><a href="#publications" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">Publications</a></li>
+    <li><a href="#education" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">Education</a></li>
+    <li><a href="#contact" onClick={() => setMenuOpen(false)} className="hover:text-purple-400">Contact</a></li>
+
+    <li className="flex gap-6 mt-2 text-2xl">
+      <a
+        href="https://github.com/Amrutha-Gopalakrishnan"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-purple-400"
+      >
+        <FaGithub />
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/amrutha-gopalakrishnan-91b85b315"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-purple-400"
+      >
+        <FaLinkedinIn />
+      </a>
+    </li>
+  </ul>
+)}
     </div>
   );
 }

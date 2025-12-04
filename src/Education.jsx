@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import scool from './assets/scool.png' 
-import clg from './assets/clg.jpeg'
+import React from "react";
+import { motion } from "framer-motion";
+import scool from "./assets/scool.png";
+import clg from "./assets/clg.jpeg";
 
 const educationData = [
   {
@@ -24,21 +23,32 @@ const educationData = [
 ];
 
 const Education = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000, easing: 'ease-out', once: true });
-  }, []);
-
   return (
     <section className="text-white py-12 px-4 bg-black" id="education">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+      <motion.h2
+        className="text-3xl md:text-4xl font-bold text-center"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         EDUCATION
-      </h2>
+      </motion.h2>
 
-      <div className="space-y-6 max-w-5xl mx-auto" data-aos="fade-up">
+      <motion.div
+        className="h-1 bg-purple-500 rounded-full w-0 mb-10 justify-center mx-auto items-center"
+        initial={{ width: 0 }}
+        whileInView={{ width: 220 }}
+        transition={{ duration: 1.2, ease: "easeInOut" }}
+      />
+
+      <div className="space-y-6 max-w-5xl mx-auto">
         {educationData.map((item, index) => (
-          <div
+          <motion.div
             key={index}
             className={`flex flex-col md:flex-row items-center md:items-start gap-4 border-l-4 ${item.borderColor} bg-[#121212] p-4 rounded-xl shadow-md`}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             <img
               src={item.image}
@@ -59,7 +69,7 @@ const Education = () => {
                 <span className="font-semibold">Grade:</span> {item.grade}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

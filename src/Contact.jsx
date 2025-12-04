@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from "react";
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useState } from "react";
 import { FaEnvelope, FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Contact = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000, easing: 'ease-out', once: true });
-  }, []);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -42,8 +37,21 @@ const Contact = () => {
       <div className="absolute inset-0 bg-black opacity-60 z-0"></div>
 
       <section className="relative z-10 text-white py-16 px-4 text-center" id="contact">
-        <div data-aos="fade-up" className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">GET IN TOUCH</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
+          <h2 className="text-3xl font-bold ">GET IN TOUCH</h2>
+
+                <motion.div
+                  className="h-1 bg-purple-500 rounded-full w-0 mb-10 justify-center mx-auto items-center"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: 210 }}
+                  transition={{ duration: 1.2, ease: "easeInOut" }}
+                />
+          
 
           <form
             onSubmit={handleSubmit}
@@ -86,7 +94,12 @@ const Contact = () => {
           </form>
 
           {/* SOCIAL ICONS */}
-          <div className="flex flex-wrap justify-center gap-6 mt-10 text-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-wrap justify-center gap-6 mt-10 text-2xl"
+          >
             <a
               href="https://www.linkedin.com/in/amrutha-gopalakrishnan-91b85b315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
@@ -112,37 +125,28 @@ const Contact = () => {
               <FaInstagram />
             </a>
             <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=amruthagopal16@gmail.com&su=Hello&body=I%20am%20interested%20in%20your%20work."
+              href="mailto:amruthagopal16@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 transition-transform"
             >
               <FaEnvelope />
             </a>
-          </div>
+          </motion.div>
 
           {/* NAVIGATION LINKS */}
           <ul className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-sm sm:text-base font-medium mt-16">
-            {["home", "about", "skills", "projects", "education", "contact"].map((section) => (
+            {["home", "about", "skills", "projects", "education","experience","certificate","achievements","publications", "contact"].map((section) => (
               <li key={section} className="hover:text-purple-400 cursor-pointer">
                 <a href={`#${section}`}>{section.charAt(0).toUpperCase() + section.slice(1)}</a>
               </li>
             ))}
-            <li>
-              <a
-                href="https://github.com/Amrutha-Gopalakrishnan"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub className="text-white text-xl hover:text-purple-400" />
-              </a>
-            </li>
           </ul>
 
           <p className="mt-6 text-xs sm:text-sm">
             © 2025 <strong>AMRUTHA.</strong> All rights reserved.
           </p>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

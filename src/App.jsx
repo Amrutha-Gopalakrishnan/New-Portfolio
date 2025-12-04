@@ -8,7 +8,10 @@ import Projects from './Project';
 import Education from './Education';
 import Contact from './Contact'
 import Tech from './Tech'
-
+import Experience from './Experience';
+import Certifications from './Certifications';
+import Publications from './Publications';
+import Achievements from './Achievements';
 
 function App() {
   return (
@@ -32,9 +35,16 @@ function App() {
        
 
         <Projects />
+
+        <Experience />
+
+        <Certifications />
         
-          <Education />
+          <Achievements />
+
+          <Publications />
         
+        <Education />
         <Contact />
 
     </div>
