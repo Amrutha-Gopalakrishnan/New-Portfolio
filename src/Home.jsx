@@ -67,7 +67,7 @@ function Home() {
 
   {/* View Resume with Download Icon Inside */}
   <a
-    href="https://docs.google.com/document/d/1Ra7brojP2TWd-X4QZQvSZSirbW1RrlGZ/edit?usp=sharing&ouid=115580187214025059968&rtpof=true&sd=true"
+    href="https://docs.google.com/document/d/1Ra7brojP2TWd-X4QZQvSZSirbW1RrlGZ/edit?usp=sharing&ouid=115580187214025059968&rtpof=true&sd=true/preview"
     target="_blank"
     rel="noopener noreferrer"
     className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 
