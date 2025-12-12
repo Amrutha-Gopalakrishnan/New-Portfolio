@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 
 function Home() {
@@ -38,10 +39,16 @@ function Home() {
       className="min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center px-4 md:px-6 lg:px-12"
       id="home"
     >
+      {/* ⭐ Profile Image — Smaller + Fully Responsive */}
       <img
         src="./profile1.jpg"
         alt="profile"
-        className="sm:w-100 sm:h-100 md:w-65 md:h-65 lg:w-70 lg:h-70 rounded-3xl object-cover shadow-md"
+        className="
+          w-40 h-40 
+          sm:w-48 sm:h-48 
+          md:w-56 md:h-56 
+          lg:w-64 lg:h-64 
+          rounded-3xl object-cover shadow-md"
       />
 
       <div className="text-center mt-6 w-full max-w-2xl">
@@ -63,38 +70,35 @@ function Home() {
           Code meets Creativity
         </p>
 
-<div className="mt-6 flex gap-4 justify-center flex-wrap mb-10">
+        {/* Buttons */}
+        <div className="mt-6 flex gap-4 justify-center flex-wrap mb-10">
+          <a
+            href="https://docs.google.com/document/d/1Ra7brojP2TWd-X4QZQvSZSirbW1RrlGZ/preview"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 
+            px-4 py-2 rounded-lg text-white text-sm font-medium transition-transform hover:-translate-y-1"
+          >
+            View Resume
+          </a>
 
-  {/* View Resume with Download Icon Inside */}
-  <a
-    href="https://docs.google.com/document/d/1Ra7brojP2TWd-X4QZQvSZSirbW1RrlGZ/preview"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 
-    px-4 py-2 rounded-lg text-white text-sm font-medium transition-transform hover:-translate-y-1"
-  >
-    View Resume
-  </a>
+          <a
+            href="#about"
+            className="bg-gray-800 hover:bg-purple-600 px-4 py-2 rounded-lg 
+            text-white text-sm font-medium transition-transform hover:-translate-y-1"
+          >
+            Know Me
+          </a>
 
-  <a
-    href="#about"
-    className="bg-gray-800 hover:bg-purple-600 px-4 py-2 rounded-lg 
-    text-white text-sm font-medium transition-transform hover:-translate-y-1"
-  >
-    Know Me
-  </a>
-
-  <a
-    href="#contact"
-    className="bg-gray-800 hover:bg-purple-600 px-4 py-2 rounded-lg 
-    text-white text-sm font-medium transition-transform hover:-translate-y-1"
-  >
-    Contact Me
-  </a>
-
-</div>
-
-      </div>      
+          <a
+            href="#contact"
+            className="bg-gray-800 hover:bg-purple-600 px-4 py-2 rounded-lg 
+            text-white text-sm font-medium transition-transform hover:-translate-y-1"
+          >
+            Contact Me
+          </a>
+        </div>
+      </div>
     </section>
   );
 }

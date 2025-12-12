@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaCalendarAlt, FaMapMarkerAlt, FaUserTie, FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaPython } from "react-icons/fa";
+import {
+  FaCalendarAlt,
+  FaMapMarkerAlt,
+  FaUserTie,
+  FaHtml5,
+  FaCss3Alt,
+  FaJsSquare,
+  FaBootstrap,
+  FaPython
+} from "react-icons/fa";
 import { SiFlask } from "react-icons/si";
 import { ExternalLink } from "lucide-react";
-
 import Internship from "./assets/Pictures/Internship.png";
 
 const techIcons = [FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaPython, SiFlask];
@@ -20,7 +28,7 @@ const Experience = () => {
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-white text-3xl font-bold  tracking-wider mt-10"
+        className="text-white text-2xl sm:text-3xl font-bold tracking-wider mt-10 text-center"
       >
         PROFESSIONAL EXPERIENCE
       </motion.h2>
@@ -29,7 +37,7 @@ const Experience = () => {
       <motion.div
         className="h-1 bg-purple-500 rounded-full w-0 mb-10"
         initial={{ width: 0 }}
-        whileInView={{ width: 440 }}
+        whileInView={{ width: 300 }}
         transition={{ duration: 1.2, ease: "easeInOut" }}
       />
 
@@ -38,41 +46,43 @@ const Experience = () => {
         initial={{ opacity: 0, scale: 0.92 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="bg-[#0a0a0a] border border-gray-700 p-6 rounded-2xl w-full max-w-3xl shadow-2xl mb-10"
+        className="bg-[#0a0a0a] border border-gray-700 p-5 sm:p-6 rounded-2xl w-full max-w-3xl shadow-2xl mb-10"
       >
-        <h3 className="text-white text-xl font-semibold">
+        <h3 className="text-white text-lg sm:text-xl font-semibold">
           Machine Learning & Front-End Developer Intern
         </h3>
-        <p className="text-gray-300 text-sm mt-1">TCS iON RIO 45</p>
+        <p className="text-gray-300 text-xs sm:text-sm mt-1">TCS iON RIO 45</p>
 
-        <div className="flex flex-wrap text-gray-300 text-sm mt-4 gap-3">
+        <div className="flex flex-wrap text-gray-300 text-xs sm:text-sm mt-4 gap-3">
           <span className="flex items-center gap-2 bg-black/40 px-3 py-1 rounded-full">
             <FaCalendarAlt className="text-yellow-400" /> July 2025 – August 2025 | 1 month
           </span>
+
           <span className="flex items-center gap-2 bg-black/40 px-3 py-1 rounded-full">
             <FaMapMarkerAlt className="text-blue-400" /> Remote
           </span>
+
           <span className="flex items-center gap-2 bg-black/40 px-3 py-1 rounded-full">
             <FaUserTie className="text-green-400" /> Internship
           </span>
         </div>
 
-        <p className="text-gray-300 text-sm mt-4 leading-relaxed">
+        <p className="text-gray-300 text-xs sm:text-sm mt-4 leading-relaxed">
           Worked on an end-to-end machine learning–based House Price Prediction system,
           validating ML outputs, refining user interactions, and building a modern UI.
         </p>
 
-        <div className="flex gap-4 mt-6">
+        <div className="flex flex-col sm:flex-row gap-4 mt-6">
           <button
             onClick={() => setOpenTech(true)}
-            className="bg-black/60 border border-gray-600 text-gray-200 px-4 py-2 rounded-lg hover:bg-black/80 transition"
+            className="bg-black/60 border border-gray-600 text-gray-200 px-4 py-2 rounded-lg hover:bg-black/80 transition w-full sm:w-auto text-sm"
           >
             Tech Stack
           </button>
 
           <button
             onClick={() => setOpenCert(true)}
-            className="bg-black/60 border border-gray-600 text-gray-200 px-4 py-2 rounded-lg hover:bg-black/80 transition"
+            className="bg-black/60 border border-gray-600 text-gray-200 px-4 py-2 rounded-lg hover:bg-black/80 transition w-full sm:w-auto text-sm"
           >
             Certificate
           </button>
@@ -83,7 +93,7 @@ const Experience = () => {
       <AnimatePresence>
         {openCert && (
           <motion.div
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex justify-center items-center z-[9999] p-6"
+            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex justify-center items-center z-[9999] p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -94,7 +104,7 @@ const Experience = () => {
               animate={{ scale: 1 }}
               exit={{ scale: 0.85 }}
             >
-              <h2 className="text-white font-semibold text-lg text-center mb-4">
+              <h2 className="text-white font-semibold text-base sm:text-lg text-center mb-4">
                 Internship Certificate — TCS iON RIO 45
               </h2>
 
@@ -132,7 +142,7 @@ const Experience = () => {
       <AnimatePresence>
         {openTech && (
           <motion.div
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex justify-center items-center z-[9999] p-6"
+            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex justify-center items-center z-[9999] p-4 sm:p-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -143,19 +153,19 @@ const Experience = () => {
               animate={{ scale: 1 }}
               exit={{ scale: 0.85 }}
             >
-              <h2 className="text-white text-lg font-semibold text-center mb-4">
+              <h2 className="text-white text-base sm:text-lg font-semibold text-center mb-4">
                 Tech Stack Used
               </h2>
 
               <button
                 onClick={() => setOpenTech(false)}
-                className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700"
+                className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 text-sm"
               >
                 Close
               </button>
 
               <motion.div
-                className="grid grid-cols-3 gap-6 text-white text-4xl place-items-center mt-6"
+                className="grid grid-cols-3 sm:grid-cols-3 gap-6 text-white text-3xl sm:text-4xl place-items-center mt-6"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ staggerChildren: 0.1, duration: 0.6 }}

@@ -26,7 +26,12 @@ const Contact = () => {
     const data = await res.json();
     if (data.success) {
       alert("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "", access_key: formData.access_key });
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+        access_key: formData.access_key,
+      });
     } else {
       alert("Something went wrong!");
     }
@@ -36,26 +41,29 @@ const Contact = () => {
     <div className="relative bg-[url('/src/assets/contactbg.png')] bg-cover bg-center bg-no-repeat">
       <div className="absolute inset-0 bg-black opacity-60 z-0"></div>
 
-      <section className="relative z-10 text-white py-16 px-4 text-center" id="contact">
+      <section
+        className="relative z-10 text-white py-16 px-4 sm:px-6 lg:px-10 text-center"
+        id="contact"
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto w-full"
         >
-          <h2 className="text-3xl font-bold ">GET IN TOUCH</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold">GET IN TOUCH</h2>
 
-                <motion.div
-                  className="h-1 bg-purple-500 rounded-full w-0 mb-10 justify-center mx-auto items-center"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: 210 }}
-                  transition={{ duration: 1.2, ease: "easeInOut" }}
-                />
-          
+          <motion.div
+            className="h-1 bg-purple-500 rounded-full w-0 mb-10 mx-auto"
+            initial={{ width: 0 }}
+            whileInView={{ width: 210 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+          />
 
+          {/* FORM */}
           <form
             onSubmit={handleSubmit}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full"
           >
             <input
               type="text"
@@ -87,7 +95,7 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="sm:col-span-2 mt-4 border-2 border-orange-400 py-2 px-8 rounded-md font-semibold hover:bg-orange-500 transition"
+              className="sm:col-span-2 mt-4 border-2 border-orange-400 py-2 px-8 rounded-md font-semibold hover:bg-orange-500 transition w-full sm:w-auto mx-auto"
             >
               SEND
             </button>
@@ -101,7 +109,7 @@ const Contact = () => {
             className="flex flex-wrap justify-center gap-6 mt-10 text-2xl"
           >
             <a
-              href="https://www.linkedin.com/in/amrutha-gopalakrishnan-91b85b315?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              href="https://www.linkedin.com/in/amrutha-gopalakrishnan-91b85b315"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 transition-transform"
@@ -117,7 +125,7 @@ const Contact = () => {
               <FaGithub />
             </a>
             <a
-              href="https://www.instagram.com/_ams_.16?utm_source=qr&igsh=YzI0YXlmcXI4djRl"
+              href="https://www.instagram.com/_ams_.16"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 transition-transform"
@@ -135,10 +143,23 @@ const Contact = () => {
           </motion.div>
 
           {/* NAVIGATION LINKS */}
-          <ul className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-sm sm:text-base font-medium mt-16">
-            {["home", "about", "skills", "projects", "education","experience","certificate","achievements","publications", "contact"].map((section) => (
+          <ul className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-xs sm:text-sm md:text-base font-medium mt-16">
+            {[
+              "home",
+              "about",
+              "skills",
+              "projects",
+              "education",
+              "experience",
+              "certificate",
+              "achievements",
+              "publications",
+              "contact",
+            ].map((section) => (
               <li key={section} className="hover:text-purple-400 cursor-pointer">
-                <a href={`#${section}`}>{section.charAt(0).toUpperCase() + section.slice(1)}</a>
+                <a href={`#${section}`}>
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </a>
               </li>
             ))}
           </ul>

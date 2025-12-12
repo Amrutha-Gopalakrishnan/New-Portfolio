@@ -1,3 +1,4 @@
+
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -21,8 +22,8 @@ const cardVariant = {
 const Skills = () => {
   return (
     <div
-      className="text-white py-12 px-4"
       id="skills"
+      className="text-white py-12 px-4"
       style={{
         backgroundImage: `url("/background.png")`,
         backgroundSize: "cover",
@@ -30,8 +31,9 @@ const Skills = () => {
         height: "auto"
       }}
     >
+      {/* Heading */}
       <motion.h2
-        className="text-4xl font-bold text-center "
+        className="text-3xl md:text-4xl font-bold text-center"
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -50,9 +52,11 @@ const Skills = () => {
         style={{ maxWidth: "130px" }}
       />
 
-      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto w-full">
+        {/* Card 1 */}
         <motion.div
-          className="border border-pink-400 rounded-xl p-6 bg-black hover:shadow-lg transition duration-300"
+          className="border border-pink-400 rounded-xl p-6 bg-black/80 hover:shadow-lg transition duration-300"
           variants={cardVariant}
           initial="hidden"
           whileInView="visible"
@@ -66,8 +70,9 @@ const Skills = () => {
           </p>
         </motion.div>
 
+        {/* Card 2 */}
         <motion.div
-          className="border border-pink-400 rounded-xl p-6 bg-black hover:shadow-lg transition duration-300"
+          className="border border-pink-400 rounded-xl p-6 bg-black/80 hover:shadow-lg transition duration-300"
           variants={cardVariant}
           initial="hidden"
           whileInView="visible"

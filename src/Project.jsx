@@ -28,32 +28,37 @@ const projects = [
   },
   {
     title: "SILAMBARSAN",
-    description: "This sample portfolio for actor Silambarasan TR (Simbu) showcases his cinematic journey, iconic performances, and multifaceted talent as an actor, singer, and director. Designed with a modern and elegant interface, the site highlights Simbu's filmography, achievements, and public presence, offering fans and industry professionals a dynamic glimpse into his legacy and impact on Tamil cinema.", 
-    image: simbu ,
+    description:
+      "This sample portfolio for actor Silambarasan TR (Simbu) showcases his cinematic journey, iconic performances, and multifaceted talent as an actor, singer, and director. Designed with a modern and elegant interface, the site highlights Simbu's filmography, achievements, and public presence, offering fans and industry professionals a dynamic glimpse into his legacy and impact on Tamil cinema.",
+    image: simbu,
     borderColor: "border-indigo-500",
     liveLink: "https://amruthagopal16.wixsite.com/simbu",
   },
   {
     title: "SKILL DRAGON EDITING",
-    description: "This video editing interface is a sleek and intuitive UI design built for modern creators. With a focus on user-friendly controls, streamlined workflows, and real-time preview capabilities, the layout empowers users to easily trim, cut, layer, and enhance videos. The clean dashboard, timeline editor, and smart tool placement ensure an efficient editing experience that balances functionality with aesthetics—ideal for both beginners and professionals.", 
-    image: SD ,
+    description:
+      "This video editing interface is a sleek and intuitive UI design built for modern creators. With a focus on user-friendly controls, streamlined workflows, and real-time preview capabilities, the layout empowers users to easily trim, cut, layer, and enhance videos. The clean dashboard, timeline editor, and smart tool placement ensure an efficient editing experience that balances functionality with aesthetics—ideal for both beginners and professionals.",
+    image: SD,
     borderColor: "border-indigo-500",
-    liveLink: "https://www.figma.com/proto/La7YL2Oi8SODyCVld8iZr4/Untitled?node-id=11-18&t=SIcn9vtW8QyhLLNG-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=11%3A18",
+    liveLink:
+      "https://www.figma.com/proto/La7YL2Oi8SODyCVld8iZr4/Untitled?node-id=11-18&t=SIcn9vtW8QyhLLNG-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=11%3A18",
   },
   {
     title: "SAHAYAK",
-    description: "Sahayak is an AI-powered, offline-first Progressive Web App designed for multi-grade classrooms in rural India. Built to support teachers with multilingual and culturally contextual content, it features intelligent lesson planning, automated assessments, and seamless resource sharing, even in low-connectivity environments.",
-    image: Sahayak , 
+    description:
+      "Sahayak is an AI-powered, offline-first Progressive Web App designed for multi-grade classrooms in rural India. Built to support teachers with multilingual and culturally contextual content, it features intelligent lesson planning, automated assessments, and seamless resource sharing, even in low-connectivity environments.",
+    image: Sahayak,
     borderColor: "border-indigo-500",
-    liveLink:"https://sahayak-agentic-ai.web.app/",
+    liveLink: "https://sahayak-agentic-ai.web.app/",
   },
   {
     title: "MY TRIP RAJA",
-    description:"MyTripRaja is an online travel platform dedicated to providing seamless travel experiences across India. Designed for both leisure and business travelers, it offers curated tour packages, real-time hotel bookings, and customizable itineraries to major destinations. With a user-friendly interface and multilingual support, MyTripRaja enables quick comparison of prices, local experiences, and instant booking confirmations. The platform features trusted payment gateways, responsive customer support, and regularly updated deals to ensure affordable and memorable journeys for everyone.",
-    image: Trip ,
+    description:
+      "MyTripRaja is an online travel platform dedicated to providing seamless travel experiences across India. Designed for both leisure and business travelers, it offers curated tour packages, real-time hotel bookings, and customizable itineraries to major destinations. With a user-friendly interface and multilingual support, MyTripRaja enables quick comparison of prices, local experiences, and instant booking confirmations. The platform features trusted payment gateways, responsive customer support, and regularly updated deals to ensure affordable and memorable journeys for everyone.",
+    image: Trip,
     borderColor: "border-indigo-500",
     liveLink: "https://www.mytripraja.com/",
-  }
+  },
 ];
 
 const cardVariant = {
@@ -114,12 +119,17 @@ const Projects = () => {
             whileInView="visible"
             viewport={{ once: false }}
           >
+            {/* ⭐ Responsive Smaller Image */}
             <div className="relative group mb-4">
               <img
                 src={project.image}
                 alt={project.title}
-                className="rounded-lg w-full h-44 object-cover"
+                className="
+                  rounded-lg w-full 
+                  h-36 sm:h-40 md:h-44 lg:h-48 
+                  object-cover"
               />
+
               <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center space-x-4 rounded-lg">
                 <a
                   href={project.liveLink}

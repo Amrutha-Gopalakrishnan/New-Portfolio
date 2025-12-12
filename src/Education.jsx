@@ -14,7 +14,8 @@ const educationData = [
   },
   {
     image: scool,
-    institution: "SRI RAMAKRISHNA MATRICULATION HIGHER SECONDARY SCHOOL, COIMBATORE",
+    institution:
+      "SRI RAMAKRISHNA MATRICULATION HIGHER SECONDARY SCHOOL, COIMBATORE",
     course: "ARTS with CA",
     duration: "2021 - 2023",
     grade: "95%",
@@ -35,7 +36,7 @@ const Education = () => {
       </motion.h2>
 
       <motion.div
-        className="h-1 bg-purple-500 rounded-full w-0 mb-10 justify-center mx-auto items-center"
+        className="h-1 bg-purple-500 rounded-full w-0 mb-10 mx-auto"
         initial={{ width: 0 }}
         whileInView={{ width: 220 }}
         transition={{ duration: 1.2, ease: "easeInOut" }}
@@ -53,8 +54,9 @@ const Education = () => {
             <img
               src={item.image}
               alt={item.institution}
-              className="w-full md:w-40 h-40 object-contain rounded-md"
+              className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 object-contain rounded-md"
             />
+
             <div className="flex flex-col text-center md:text-left">
               <h3 className="font-bold uppercase text-base md:text-lg">
                 {item.institution}

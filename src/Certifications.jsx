@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Eye, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+
 import bgBlue from "./assets/background1.png";
 import tcsion from "./assets/tcsion.png";
 
@@ -82,7 +83,7 @@ const Certifications = () => {
         style={{ backgroundImage: `url(${bgBlue})` }}
       >
         <motion.h2
-          className="text-3xl font-bold text-center mb-2"
+          className="text-3xl font-bold text-center mb-2 px-4"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -98,7 +99,8 @@ const Certifications = () => {
           transition={{ duration: 1.2, ease: "easeInOut" }}
         />
 
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+        {/* RESPONSIVE GRID */}
+        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-6 px-4">
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
@@ -107,20 +109,25 @@ const Certifications = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-4 min-w-0">
                   <img
                     src={cert.icon}
                     alt="certificate icon"
                     className="w-12 h-12 rounded-lg object-contain bg-white p-1"
                   />
-                  <div>
-                    <h3 className="text-lg font-semibold leading-snug">{cert.title}</h3>
-                    <p className="text-gray-300 text-sm">{cert.platform}</p>
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-semibold leading-snug break-words">
+                      {cert.title}
+                    </h3>
+                    <p className="text-gray-300 text-sm break-words">
+                      {cert.platform}
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 text-white opacity-90">
+                {/* ICONS */}
+                <div className="flex items-center gap-3 shrink-0 text-white opacity-90">
                   <Eye
                     className="w-5 h-5 cursor-pointer hover:text-blue-300 transition hover:scale-125"
                     onClick={() => {
@@ -128,7 +135,6 @@ const Certifications = () => {
                       setOpen(true);
                     }}
                   />
-
                   <ExternalLink
                     className="w-5 h-5 cursor-pointer hover:text-blue-300 transition hover:scale-125"
                     onClick={() => window.open(cert.link, "_blank")}
@@ -155,8 +161,12 @@ const Certifications = () => {
               animate={{ scale: 1 }}
               exit={{ scale: 0.85 }}
             >
+              {/* Header */}
               <div className="w-full flex justify-between items-center mb-3 px-2">
-                <h2 className="text-white font-semibold text-lg">{current.title}</h2>
+                <h2 className="text-white font-semibold text-lg">
+                  {current.title}
+                </h2>
+
                 <button
                   onClick={() => setOpen(false)}
                   className="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded-lg text-sm transition hover:scale-110"
@@ -165,8 +175,9 @@ const Certifications = () => {
                 </button>
               </div>
 
+              {/* Image */}
               <motion.div
-                className="w-full bg-black rounded-xl overflow-hidden border border-gray-600"
+                className="w-full bg-black rounded-xl overflow-hidden border border-gray-600 max-h-[80vh]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -174,7 +185,7 @@ const Certifications = () => {
                 <img
                   src={current.preview}
                   alt="Certificate"
-                  className="w-full h-auto object-contain"
+                  className="w-full h-full object-contain"
                 />
               </motion.div>
             </motion.div>

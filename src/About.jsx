@@ -11,10 +11,10 @@ const lineVariant = {
 
 const About = () => {
   return (
-    <div id="about" className="bg-black text-white">
+    <div id="about" className="bg-black text-white w-full">
 
       {/* TITLE */}
-      <div className="pt-10 pb-4">
+      <div className="pt-10 pb-4 px-4">
         <motion.h2
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-center"
           initial={{ opacity: 0, y: -20 }}
@@ -25,7 +25,7 @@ const About = () => {
           ABOUT
         </motion.h2>
 
-        {/* LEFT→RIGHT UNDERLINE */}
+        {/* UNDERLINE */}
         <div className="flex justify-center mt-2">
           <motion.div
             className="h-[3px] bg-purple-500 rounded-full"
@@ -45,7 +45,12 @@ const About = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="
+          max-w-6xl w-full 
+          grid grid-cols-1 md:grid-cols-2 
+          gap-8 sm:gap-10 md:gap-14 
+          items-center
+        ">
 
           {/* LEFT TEXT */}
           <motion.div
@@ -55,7 +60,9 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <p className="text-purple-400 mb-2 text-sm sm:text-base">&lt;ABOUT ME /&gt;</p>
+            <p className="text-purple-400 mb-3 text-sm sm:text-base">
+              &lt;ABOUT ME /&gt;
+            </p>
 
             <p className="text-gray-300 text-justify text-sm sm:text-base leading-relaxed tracking-wide">
               A passionate Frontend Developer and UI/UX Designer with a deep love for clean code 
@@ -83,7 +90,12 @@ const About = () => {
             <img
               src="./me.jpg"
               alt="About"
-              className="w-64 sm:w-72 md:w-80 lg:w-96 h-auto object-cover rounded-xl shadow-xl"
+              className="
+                w-60 sm:w-72 md:w-80 lg:w-[420px] 
+                h-auto object-cover 
+                rounded-xl shadow-xl 
+                max-w-full
+              "
             />
           </motion.div>
         </div>
