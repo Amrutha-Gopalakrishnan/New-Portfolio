@@ -13,28 +13,31 @@ const projects = [
   {
     title: "ASHA AI",
     description:
-    "Asha AI is an intelligent career support platform that integrates an AI-powered chatbot for real-time career guidance, personalized recommendations, and resources. It features dynamic job listings with advanced filtering, user authentication, profile management, and a clean, responsive UI. Designed to empower users with instant insights and streamlined job discovery, Asha AI bridges technology and career development in a user-centric experience.",
+      "Asha AI is an intelligent career support platform that integrates an AI-powered chatbot for real-time career guidance, personalized recommendations, and resources. It features dynamic job listings with advanced filtering, user authentication, profile management, and a clean, responsive UI. Designed to empower users with instant insights and streamlined job discovery, Asha AI bridges technology and career development in a user-centric experience.",
     image: Asha,
     liveLink: "https://ashaa.netlify.app/",
     tags: ["React", "AI"],
   },
   {
     title: "BLOOD BUMS",
-    description: "BloodBums is a responsive web application that connects blood donors with recipients by matching requests based on blood group and location. It allows users to post urgent requirements, browse available donors, and manage requests through a clean, mobile‑friendly interface. The project showcases full‑stack skills including form handling, validation, API integration, and real‑time updates to support a critical healthcare use case.",
+    description:
+      "BloodBums is a responsive web application that connects blood donors with recipients by matching requests based on blood group and location. It allows users to post urgent requirements, browse available donors, and manage requests through a clean, mobile-friendly interface.",
     image: Blood,
     liveLink: "https://bloodbums.netlify.app/",
     tags: ["JavaScript", "Tailwind CSS"],
   },
   {
     title: "SILAMBARSAN",
-    description: "This sample portfolio for actor Silambarasan TR (Simbu) showcases his cinematic journey, iconic performances, and multifaceted talent as an actor, singer, and director. Designed with a modern and elegant interface, the site highlights Simbu's filmography, achievements, and public presence, offering fans and industry professionals a dynamic glimpse into his legacy and impact on Tamil cinema.",
+    description:
+      "This sample portfolio for actor Silambarasan TR showcases his cinematic journey, iconic performances, and multifaceted talent as an actor, singer, and director.",
     image: simbu,
     liveLink: "https://amruthagopal16.wixsite.com/simbu",
     tags: ["UI/UX", "Design", "Portfolio"],
   },
   {
     title: "SKILL DRAGON EDITING",
-    description: "This video editing interface is a sleek and intuitive UI design built for modern creators. With a focus on user-friendly controls, streamlined workflows, and real-time preview capabilities, the layout empowers users to easily trim, cut, layer, and enhance videos. The clean dashboard, timeline editor, and smart tool placement ensure an efficient editing experience that balances functionality with aesthetics—ideal for both beginners and professionals.",
+    description:
+      "This video editing interface is a sleek and intuitive UI design built for modern creators with a clean dashboard and efficient workflow.",
     image: SD,
     liveLink:
       "https://www.figma.com/proto/La7YL2Oi8SODyCVld8iZr4/Untitled",
@@ -42,14 +45,16 @@ const projects = [
   },
   {
     title: "MY TRIP RAJA",
-    description: "MyTripRaja is an online travel platform dedicated to providing seamless travel experiences across India. Designed for both leisure and business travelers, it offers curated tour packages, real-time hotel bookings, and customizable itineraries to major destinations. With a user-friendly interface and multilingual support, MyTripRaja enables quick comparison of prices, local experiences, and instant booking confirmations.",
+    description:
+      "MyTripRaja is an online travel platform offering curated tour packages, real-time hotel bookings, and customizable itineraries across India.",
     image: Trip,
     liveLink: "https://www.mytripraja.com/",
     tags: ["React", "Travel", "AI"],
   },
   {
     title: "CAMPUS FIND",
-    description: "CampusFind is a campus‑focused lost‑and‑found platform where students can report lost items, upload details and images, and browse or search for found items using filters like category and location. The app provides an organized dashboard for tracking item status, encourages quick communication between owners and finders. This is specifically designed for a college (SRCAS)- No one can ale to logina nd use aprt from SRCAS college students.",
+    description:
+      "CampusFind is a campus-focused lost-and-found platform designed exclusively for SRCAS students to report and find lost items.",
     image: CF,
     liveLink: "https://campusfindsrcas.vercel.app/",
     tags: ["Lost & Found", "College App"],
@@ -58,8 +63,8 @@ const projects = [
 
 const Projects = () => {
   const [blink, setBlink] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(null);
 
-  // Blink badge every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setBlink((prev) => !prev);
@@ -68,10 +73,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section
-      id="projects"
-      className="bg-black px-4 sm:px-6 lg:px-24 py-28"
-    >
+    <section id="projects" className="bg-black px-4 sm:px-6 lg:px-24 py-28">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
@@ -91,7 +93,7 @@ const Projects = () => {
             PROJECTS
           </motion.span>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white">
             Selected projects <br />
             <span className="text-gray-400">that actually shipped</span>
           </h2>
@@ -107,10 +109,17 @@ const Projects = () => {
               transition={{ duration: 0.6, delay: index * 0.08 }}
               viewport={{ once: true }}
               whileHover={{ y: -8 }}
+              onClick={() =>
+                setActiveIndex(activeIndex === index ? null : index)
+              }
               className="group [perspective:1200px]"
             >
-              <div className="relative h-[480px] w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-
+              <div
+                className={`relative h-[480px] w-full transition-transform duration-700
+                [transform-style:preserve-3d]
+                ${activeIndex === index ? "[transform:rotateY(180deg)]" : ""}
+                group-hover:[transform:rotateY(180deg)]`}
+              >
                 {/* FRONT */}
                 <div className="absolute inset-0 rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a] backface-hidden">
                   <img
@@ -148,6 +157,7 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center ml-20 gap-2 text-sm font-semibold text-black bg-green-400 px-5 py-2 rounded-full hover:scale-105 transition self-start"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     Live Project <FaExternalLinkAlt size={12} />
                   </a>
