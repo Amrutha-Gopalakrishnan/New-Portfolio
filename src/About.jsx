@@ -1,106 +1,85 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const lineVariant = {
-  hidden: { width: 0 },
-  visible: {
-    width: "120px",
-    transition: { duration: 1, ease: "easeInOut" }
-  },
-};
-
 const About = () => {
+  const [blink, setBlink] = useState(true);
+
+  // Blink effect every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBlink((prev) => !prev);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div id="about" className="bg-black text-white w-full">
+    <section
+      id="about"
+      className="min-h-screen bg-black px-4 sm:px-6 lg:px-24 py-24 flex items-center "
+    >
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-14 lg:gap-20 items-center">
 
-      {/* TITLE */}
-      <div className="pt-10 pb-4 px-4">
-        <motion.h2
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        {/* LEFT – Profile Card */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
+          className="flex justify-center lg:justify-start"
         >
-          ABOUT
-        </motion.h2>
-
-        {/* UNDERLINE */}
-        <div className="flex justify-center mt-2">
-          <motion.div
-            className="h-[3px] bg-purple-500 rounded-full"
-            variants={lineVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          />
-        </div>
-      </div>
-
-      {/* MAIN SECTION */}
-      <motion.section
-        className="flex items-center justify-center px-4 sm:px-6 md:px-12 py-10 sm:py-14 md:py-20"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: true }}
-      >
-        <div className="
-          max-w-6xl w-full 
-          grid grid-cols-1 md:grid-cols-2 
-          gap-8 sm:gap-10 md:gap-14 
-          items-center
-        ">
-
-          {/* LEFT TEXT */}
-          <motion.div
-            className="md:pl-4"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <p className="text-purple-400 mb-3 text-sm sm:text-base">
-              &lt;ABOUT ME /&gt;
-            </p>
-
-            <p className="text-gray-300 text-justify text-sm sm:text-base leading-relaxed tracking-wide">
-              A passionate Frontend Developer and UI/UX Designer with a deep love for clean code 
-              and creative design. I specialize in building responsive, intuitive, and user-centered 
-              web experiences that not only look good but also perform seamlessly.
-              <br /><br />
-              With a strong foundation in both development and design, I enjoy crafting interfaces 
-              that strike the perfect balance between aesthetics and functionality. Whether it’s 
-              designing smooth user flows or coding dynamic components, I approach each project 
-              with precision, creativity, and a user-first mindset.
-              <br /><br />
-              Outside of work, I’m constantly exploring new trends in tech and design, always eager 
-              to learn, grow, and take on challenges that push my boundaries.
-            </p>
-          </motion.div>
-
-          {/* RIGHT IMAGE */}
-          <motion.div
-            className="flex justify-center md:justify-end"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
+          <div className="relative w-[280px] sm:w-[340px] lg:w-[380px] h-[420px] sm:h-[480px] lg:h-[520px] rounded-3xl bg-[#0c0c0c] p-3 shadow-[0_0_80px_rgba(255,255,255,0.04)]">
             <img
               src="./me.jpg"
-              alt="About"
-              className="
-                w-60 sm:w-72 md:w-80 lg:w-[420px] 
-                h-auto object-cover 
-                rounded-xl shadow-xl 
-                max-w-full
-              "
+              alt="Amrutha Gopalakrishnan"
+              className="w-full h-full object-cover rounded-2xl grayscale hover:grayscale-0 transition duration-700"
             />
-          </motion.div>
-        </div>
-      </motion.section>
-    </div>
+
+            {/* Glass overlay */}
+            <div className="absolute inset-3 rounded-2xl border border-white/10 pointer-events-none" />
+          </div>
+        </motion.div>
+
+        {/* RIGHT – About Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="max-w-2xl text-center lg:text-left"
+        >
+          {/* ABOUT Badge (Blinking) */}
+          <motion.span
+            animate={{ opacity: blink ? 1 : 0.3 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-sm text-green-400 mb-6"
+          >
+            <span className="h-2 w-2 bg-green-400 rounded-full" />
+            ABOUT
+          </motion.span>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-snug">
+            Designing web experiences with clarity,
+            creativity, and performance in mind
+          </h2>
+
+          <p className="text-gray-400 mt-6 leading-relaxed text-sm sm:text-base">
+            I’m a frontend developer based in Coimbatore, India. I focus on building
+            fast, scalable, and visually refined web interfaces that feel effortless
+            to use.
+          </p>
+
+          <p className="text-gray-400 mt-4 leading-relaxed text-sm sm:text-base">
+            My background in Computer Science and Data Analytics helps me balance
+            design decisions with logic, performance, and real-world usability.
+          </p>
+
+          <p className="text-gray-400 mt-4 leading-relaxed text-sm sm:text-base">
+            I don’t chase trends. I build interfaces that are intentional,
+            maintainable, and quietly powerful.
+          </p>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

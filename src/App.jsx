@@ -1,9 +1,8 @@
-import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 import Home from './Home';
 import React from 'react';
 import About from './About';
 import 'aos/dist/aos.css';
-import Skills from './Skills';
 import Projects from './Project';
 import Education from './Education';
 import Contact from './Contact'
@@ -15,42 +14,25 @@ import Achievements from './Achievements';
 
 function App() {
   return (
-    <div className="font-sans">
+    <div className="flex flex-col md:flex-row min-h-screen bg-[#070708] text-white font-sans">
+      {/* Sidebar Navigation */}
+      <Sidebar />
 
-        <div style={{backgroundImage: `url("/background.png")`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                height: "100vh"}}>
-        <Navbar />
+      {/* Main Content Area */}
+      <main className="flex-1 md:ml-20 lg:ml-24 transition-all duration-300">
         <Home />
-        </div>
-
-          <About />
-
-      
-         <Skills />
-        
+        <About />
         <Tech />
-
-       
-
         <Projects />
-
         <Experience />
-
         <Certifications />
-        
-          <Achievements />
-
-          <Publications />
-        
+        <Achievements />
+        <Publications />
         <Education />
         <Contact />
-
+      </main>
     </div>
   );
 }
 
 export default App;
-
-

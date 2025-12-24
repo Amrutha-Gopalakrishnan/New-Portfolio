@@ -1,154 +1,161 @@
-import React from "react";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import Asha from "./assets/Asha.png";
-import cash from "./assets/Cash.png";
 import Blood from "./assets/Blood.png";
+import Sahayak from "./assets/Sahayak.png";
 import simbu from "./assets/simbu.png";
 import SD from "./assets/SD.png";
-import Sahayak from "./assets/Sahayak.png";
 import Trip from "./assets/tripraja.png";
+import CF from "./assets/CF.png";
 
 const projects = [
   {
     title: "ASHA AI",
     description:
-      "Asha AI is an intelligent career support platform that integrates an AI-powered chatbot for real-time career guidance, personalized recommendations, and resources. It features dynamic job listings with advanced filtering, user authentication, profile management, and a clean, responsive UI. Designed to empower users with instant insights and streamlined job discovery, Asha AI bridges technology and career development in a user-centric experience.",
+    "Asha AI is an intelligent career support platform that integrates an AI-powered chatbot for real-time career guidance, personalized recommendations, and resources. It features dynamic job listings with advanced filtering, user authentication, profile management, and a clean, responsive UI. Designed to empower users with instant insights and streamlined job discovery, Asha AI bridges technology and career development in a user-centric experience.",
     image: Asha,
-    borderColor: "border-indigo-500",
     liveLink: "https://ashaa.netlify.app/",
+    tags: ["React", "AI"],
   },
   {
     title: "BLOOD BUMS",
-    description:
-      "BloodBurns is a bold and immersive fitness web platform designed to inspire and engage users through high-impact visuals and motivational content.",
+    description: "BloodBums is a responsive web application that connects blood donors with recipients by matching requests based on blood group and location. It allows users to post urgent requirements, browse available donors, and manage requests through a clean, mobile‑friendly interface. The project showcases full‑stack skills including form handling, validation, API integration, and real‑time updates to support a critical healthcare use case.",
     image: Blood,
-    borderColor: "border-indigo-500",
     liveLink: "https://bloodbums.netlify.app/",
+    tags: ["JavaScript", "Tailwind CSS"],
   },
   {
     title: "SILAMBARSAN",
-    description:
-      "This sample portfolio for actor Silambarasan TR (Simbu) showcases his cinematic journey, iconic performances, and multifaceted talent as an actor, singer, and director. Designed with a modern and elegant interface, the site highlights Simbu's filmography, achievements, and public presence, offering fans and industry professionals a dynamic glimpse into his legacy and impact on Tamil cinema.",
+    description: "This sample portfolio for actor Silambarasan TR (Simbu) showcases his cinematic journey, iconic performances, and multifaceted talent as an actor, singer, and director. Designed with a modern and elegant interface, the site highlights Simbu's filmography, achievements, and public presence, offering fans and industry professionals a dynamic glimpse into his legacy and impact on Tamil cinema.",
     image: simbu,
-    borderColor: "border-indigo-500",
     liveLink: "https://amruthagopal16.wixsite.com/simbu",
+    tags: ["UI/UX", "Design", "Portfolio"],
   },
   {
     title: "SKILL DRAGON EDITING",
-    description:
-      "This video editing interface is a sleek and intuitive UI design built for modern creators. With a focus on user-friendly controls, streamlined workflows, and real-time preview capabilities, the layout empowers users to easily trim, cut, layer, and enhance videos. The clean dashboard, timeline editor, and smart tool placement ensure an efficient editing experience that balances functionality with aesthetics—ideal for both beginners and professionals.",
+    description: "This video editing interface is a sleek and intuitive UI design built for modern creators. With a focus on user-friendly controls, streamlined workflows, and real-time preview capabilities, the layout empowers users to easily trim, cut, layer, and enhance videos. The clean dashboard, timeline editor, and smart tool placement ensure an efficient editing experience that balances functionality with aesthetics—ideal for both beginners and professionals.",
     image: SD,
-    borderColor: "border-indigo-500",
     liveLink:
-      "https://www.figma.com/proto/La7YL2Oi8SODyCVld8iZr4/Untitled?node-id=11-18&t=SIcn9vtW8QyhLLNG-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=11%3A18",
-  },
-  {
-    title: "SAHAYAK",
-    description:
-      "Sahayak is an AI-powered, offline-first Progressive Web App designed for multi-grade classrooms in rural India. Built to support teachers with multilingual and culturally contextual content, it features intelligent lesson planning, automated assessments, and seamless resource sharing, even in low-connectivity environments.",
-    image: Sahayak,
-    borderColor: "border-indigo-500",
-    liveLink: "https://sahayak-agentic-ai.web.app/",
+      "https://www.figma.com/proto/La7YL2Oi8SODyCVld8iZr4/Untitled",
+    tags: ["UI/UX", "Design"],
   },
   {
     title: "MY TRIP RAJA",
-    description:
-      "MyTripRaja is an online travel platform dedicated to providing seamless travel experiences across India. Designed for both leisure and business travelers, it offers curated tour packages, real-time hotel bookings, and customizable itineraries to major destinations. With a user-friendly interface and multilingual support, MyTripRaja enables quick comparison of prices, local experiences, and instant booking confirmations. The platform features trusted payment gateways, responsive customer support, and regularly updated deals to ensure affordable and memorable journeys for everyone.",
+    description: "MyTripRaja is an online travel platform dedicated to providing seamless travel experiences across India. Designed for both leisure and business travelers, it offers curated tour packages, real-time hotel bookings, and customizable itineraries to major destinations. With a user-friendly interface and multilingual support, MyTripRaja enables quick comparison of prices, local experiences, and instant booking confirmations.",
     image: Trip,
-    borderColor: "border-indigo-500",
     liveLink: "https://www.mytripraja.com/",
+    tags: ["React", "Travel", "AI"],
+  },
+  {
+    title: "CAMPUS FIND",
+    description: "CampusFind is a campus‑focused lost‑and‑found platform where students can report lost items, upload details and images, and browse or search for found items using filters like category and location. The app provides an organized dashboard for tracking item status, encourages quick communication between owners and finders. This is specifically designed for a college (SRCAS)- No one can ale to logina nd use aprt from SRCAS college students.",
+    image: CF,
+    liveLink: "https://campusfindsrcas.vercel.app/",
+    tags: ["Lost & Found", "College App"],
   },
 ];
 
-const cardVariant = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" },
-  }),
-};
-
-const lineVariant = {
-  hidden: { width: 0 },
-  visible: {
-    width: "190px",
-    transition: { duration: 1.2, ease: "easeInOut" },
-  },
-};
-
 const Projects = () => {
+  const [blink, setBlink] = useState(true);
+
+  // Blink badge every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBlink((prev) => !prev);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
-      className="bg-black text-white py-16 px-4"
       id="projects"
-      style={{
-        backgroundImage: `url("/background.png")`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        height: "auto",
-      }}
+      className="bg-black px-4 sm:px-6 lg:px-24 py-28"
     >
-      <motion.h2
-        className="text-3xl md:text-4xl font-bold text-center"
-        initial={{ opacity: 0, y: -50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: false }}
-      >
-        PROJECTS
-      </motion.h2>
+      <div className="max-w-6xl mx-auto">
 
-      <motion.div
-        className="h-1 bg-purple-500 mx-auto mb-10 rounded-full"
-        variants={lineVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false }}
-      />
-
-      <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            className={`border ${project.borderColor} rounded-xl p-4 bg-[#0e0e10] shadow-md`}
-            custom={index}
-            variants={cardVariant}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false }}
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-20 text-center lg:text-left"
+        >
+          <motion.span
+            animate={{ opacity: blink ? 1 : 0.35 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-sm text-green-400 mb-6"
           >
-            {/* ⭐ Responsive Smaller Image */}
-            <div className="relative group mb-4">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="
-                  rounded-lg w-full 
-                  h-36 sm:h-40 md:h-44 lg:h-48 
-                  object-cover"
-              />
+            <span className="h-2 w-2 bg-green-400 rounded-full" />
+            PROJECTS
+          </motion.span>
 
-              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center space-x-4 rounded-lg">
-                <a
-                  href={project.liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white text-black p-2 rounded-full hover:bg-gray-300 transition"
-                  title="Live Preview"
-                >
-                  <FaExternalLinkAlt />
-                </a>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-tight">
+            Selected projects <br />
+            <span className="text-gray-400">that actually shipped</span>
+          </h2>
+        </motion.div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.08 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -8 }}
+              className="group [perspective:1200px]"
+            >
+              <div className="relative h-[480px] w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+
+                {/* FRONT */}
+                <div className="absolute inset-0 rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a] backface-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+
+                {/* BACK */}
+                <div className="absolute inset-0 rounded-2xl bg-[#0c0c0c] border border-white/10 p-6 backface-hidden [transform:rotateY(180deg)] flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-3">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {project.tags.map((tag, i) => (
+                        <span
+                          key={i}
+                          className="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center ml-20 gap-2 text-sm font-semibold text-black bg-green-400 px-5 py-2 rounded-full hover:scale-105 transition self-start"
+                  >
+                    Live Project <FaExternalLinkAlt size={12} />
+                  </a>
+                </div>
               </div>
-            </div>
-
-            <h3 className="text-lg font-bold text-center">{project.title}</h3>
-            <p className="text-sm text-gray-300 mt-2 text-justify">
-              {project.description}
-            </p>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

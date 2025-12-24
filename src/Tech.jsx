@@ -1,108 +1,142 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import {
+  FaReact,
+  FaJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaPython,
+  FaGitAlt,
+  FaGithub,
+} from "react-icons/fa";
+import {
+  SiTailwindcss,
+  SiFlask,
+  SiMysql,
+  SiVercel,
+  SiFigma,
+  SiBootstrap,
+  SiPostman,
+  SiCanva,
+  SiNetlify,
+  SiWix,
+  SiWordpress,
+  SiFramer,
+  SiFirebase,
+} from "react-icons/si";
+import { MdCode } from "react-icons/md";
 
-const techTools = [
-  { name: "HTML", icon: "./html.jpg" },
-  { name: "CSS", icon: "./css.jpeg" },
-  { name: "Bootstrap CSS", icon: "./boot.jpeg" },
-  { name: "Javascript", icon: "./js.logo.webp" },
-  { name: "React JS", icon: "./react.png" },
-  { name: "VS Code", icon: "./vscode.png" },
-  { name: "Python", icon: "./python.png" },
-  { name: "GitHub", icon: "./github.png" },
-  { name: "Canva", icon: "./Canva-New-Logo.png" },
-  { name: "Figma", icon: "./figma.png" },
-  { name: "Vercel", icon: "./vercel.png" },
-  { name: "Netlify", icon: "./netlify.png" },
-  { name: "Postman", icon: "./postman.web.webp" },
-  { name: "Wix", icon: "./WIX-Logo.png" },
-  { name: "Framer", icon: "framer.png" },
-  { name: "Word Press", icon: "wordpress.jpeg" }
-];
-
-const lineVariant = {
-  hidden: { width: 0 },
-  visible: {
-    width: "100%",
-    transition: { duration: 1.2, ease: "easeInOut" }
-  }
-};
-
-const cardVariant = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: (i) => ({
-    opacity: 1,
-    scale: 1,
-    transition: { delay: i * 0.08, duration: 0.5 }
-  })
+const techStack = {
+  frontend: [
+    { name: "HTML5", icon: <FaHtml5 className="text-orange-500" /> },
+    { name: "CSS3", icon: <FaCss3Alt className="text-blue-500" /> },
+    { name: "Tailwind CSS", icon: <SiTailwindcss className="text-sky-400" /> },
+    { name: "Bootstrap CSS", icon: <SiBootstrap className="text-purple-400" /> },
+    { name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
+    { name: "React.js", icon: <FaReact className="text-cyan-400" /> },
+  ],
+  backend: [
+    { name: "Python", icon: <FaPython className="text-blue-400" /> },
+    { name: "Flask", icon: <SiFlask className="text-gray-300" /> },
+    { name: "SQL", icon: <SiMysql className="text-blue-300" /> },
+    { name: "Postman", icon: <SiPostman className="text-orange-500" /> },
+  ],
+  tools: [
+    { name: "Git", icon: <FaGitAlt className="text-orange-500" /> },
+    { name: "GitHub", icon: <FaGithub className="text-gray-200" /> },
+    { name: "Figma", icon: <SiFigma className="text-pink-400" /> },
+    { name: "Vercel", icon: <SiVercel className="text-white" /> },
+    { name: "VS Code", icon: <MdCode className="text-sky-400" /> },
+    { name: "Wix", icon: <SiWix className="text-gray-300" /> },
+    { name: "Framer", icon: <SiFramer className="text-sky-400" /> },
+    { name: "WordPress", icon: <SiWordpress className="text-sky-400" /> },
+    { name: "Canva", icon: <SiCanva className="text-purple-400" /> },
+    { name: "Netlify", icon: <SiNetlify className="text-sky-400" /> },
+    { name: "Firebase", icon: <SiFirebase className="text-orange-500" /> },
+  ],
 };
 
 const TechStack = () => {
+  const [blink, setBlink] = useState(true);
+
+  // Blink badge every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBlink((prev) => !prev);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="text-white pb-16 bg-black px-4 sm:px-6 md:px-10">
-      <motion.h2
-        className="text-2xl sm:text-3xl md:text-4xl font-bold text-center pt-10"
-        initial={{ opacity: 0, y: -40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        TECH STACK & TOOLS
-      </motion.h2>
+    <section
+      id="skills"
+      className="w-full bg-black px-4 sm:px-6 lg:px-24 py-24"
+    >
+      <div className="max-w-6xl mx-auto space-y-16">
 
-      {/* Animated line */}
-      <motion.div
-        className="h-1 bg-purple-500 mx-auto mb-10 rounded-full"
-        variants={lineVariant}
-        initial="hidden"
-        whileInView="visible"
-        style={{ maxWidth: "320px" }}
-      />
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="space-y-6 text-center lg:text-left"
+        >
+          <motion.span
+            animate={{ opacity: blink ? 1 : 0.3 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-sm text-green-400"
+          >
+            <span className="h-2 w-2 bg-green-400 rounded-full" />
+            SKILLS & TOOLS
+          </motion.span>
 
-      <motion.div
-        className="border border-yellow-400 rounded-xl p-4 sm:p-6 lg:p-8 max-w-6xl mx-auto"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="
-          grid 
-          grid-cols-2 
-          sm:grid-cols-3 
-          md:grid-cols-4 
-          lg:grid-cols-5
-          gap-4 sm:gap-5 md:gap-6
-          justify-items-center
-        ">
-          {techTools.map((tool, index) => (
-            <motion.div
-              key={index}
-              className="
-                flex items-center gap-2 
-                px-3 py-2 sm:px-4 sm:py-2 
-                rounded-xl 
-                bg-[#1b2236]
-                shadow-md
-                w-full sm:w-auto
-                justify-center
-              "
-              custom={index}
-              variants={cardVariant}
-              initial="hidden"
-              whileInView="visible"
+          <p className="text-gray-400 text-sm sm:text-base max-w-3xl mx-auto lg:mx-0">
+            Learned by coding all night and debugging all day. I focus on building
+            clean, scalable interfaces and reliable backend systems using modern
+            technologies.
+          </p>
+        </motion.div>
+
+        {/* Tech Sections */}
+        {Object.entries(techStack).map(([category, items]) => (
+          <div key={category} className="space-y-8">
+            <motion.h3
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="text-2xl font-light text-white capitalize"
             >
-              <img
-                src={tool.icon}
-                alt={tool.name}
-                className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain"
-              />
-              <p className="text-white text-xs sm:text-sm font-medium text-center">
-                {tool.name}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
-    </div>
+              {category}
+            </motion.h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {items.map((skill, index) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.06 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -6 }}
+                  className="flex items-center gap-4 px-5 py-4 rounded-xl
+                             bg-white/5 border border-white/10
+                             hover:border-emerald-400/40
+                             hover:bg-white/10
+                             transition-all duration-300"
+                >
+                  <div className="text-xl">{skill.icon}</div>
+                  <span className="text-gray-200 font-semibold text-sm">
+                    {skill.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 };
 

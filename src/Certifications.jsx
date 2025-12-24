@@ -1,144 +1,162 @@
-import React, { useState } from "react";
-import { Eye, ExternalLink } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Eye, ExternalLink, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  SiJavascript,
+  SiGit,
+  SiReact,
+  SiPython,
+  SiTcs
+} from "react-icons/si";
 
-import bgBlue from "./assets/background1.png";
-import tcsion from "./assets/tcsion.png";
-
-import Communication from "./assets/Pictures/Communication.png";
-import SoftSkills from "./assets/Pictures/SoftSkills.png";
 import JS from "./assets/Pictures/JS.png";
 import Git from "./assets/Pictures/Git.png";
 import ReactCert from "./assets/Pictures/React.png";
 import Python from "./assets/Pictures/Python.png";
-
-const onlineIcons = {
-  js: "https://www.svgrepo.com/show/353925/javascript.svg",
-  git: "https://www.svgrepo.com/show/452210/git.svg",
-  react: "https://www.svgrepo.com/show/452092/react.svg",
-  tcs: tcsion,
-  python: "https://www.svgrepo.com/show/452091/python.svg",
-};
+import Communication from "./assets/Pictures/Communication.png";
+import SoftSkills from "./assets/Pictures/SoftSkills.png";
 
 const certifications = [
   {
     title: "Programming with JavaScript",
     platform: "META – COURSERA",
-    border: "border-blue-400",
-    icon: onlineIcons.js,
+    icon: <SiJavascript className="text-yellow-400" size={20} />,
     preview: JS,
     link: "https://www.coursera.org/account/accomplishments/verify/MNK1STQH7X0O",
   },
   {
-    title: "Git and GitHub Course",
-    platform: "Geekster",
-    border: "border-red-400",
-    icon: onlineIcons.git,
-    preview: Git,
-    link: "https://drive.google.com/file/d/1q-5gNNzP94yNOX4u9snVRegZLIlyGIFv/view",
-  },
-  {
-    title: "React Basics",
+    title: "React Basic",
     platform: "META – COURSERA",
-    border: "border-yellow-400",
-    icon: onlineIcons.react,
+    icon: <SiReact className="text-cyan-400" size={20} />,
     preview: ReactCert,
     link: "https://coursera.org/share/2770fae1889eda49be8a288f90498168",
   },
   {
+    title: "Git and Github",
+    platform: "Geekster",
+    icon: <SiGit className="text-orange-500" size={20} />,
+    preview: Git,
+    link: "https://drive.google.com/file/d/1q-5gNNzP94yNOX4u9snVRegZLIlyGIFv/view",
+  },
+  {
+    title: "Python for Data Science",
+    platform: "Infosys Springboard",
+    icon: <SiPython className="text-blue-400" size={20} />,
+    preview: Python,
+    link: "https://drive.google.com/file/d/1w6zZAjG2dN9MXI_t9NFooqz7PmOOO_qC/view",
+  },
+  {
     title: "Communication Skills",
     platform: "TCS iON",
-    border: "border-yellow-400",
-    icon: onlineIcons.tcs,
+    icon: <SiTcs className="text-blue-400" size={20} />,
     preview: Communication,
     link: "https://drive.google.com/file/d/1A0mNT8iB4CpLds-IGW58h5qTimffTbTo/view",
   },
   {
     title: "Introduction to Soft Skills",
     platform: "TCS iON",
-    border: "border-green-400",
-    icon: onlineIcons.tcs,
+    icon: <SiTcs className="text-blue-400" size={20} />,
     preview: SoftSkills,
     link: "https://drive.google.com/file/d/1nAEgpHanCa4JJYyQIfyytshB3-zrcTo6/view",
-  },
-  {
-    title: "Python for Data Science",
-    platform: "Infosys Springboard",
-    border: "border-yellow-400",
-    icon: onlineIcons.python,
-    preview: Python,
-    link: "https://drive.google.com/file/d/1w6zZAjG2dN9MXI_t9NFooqz7PmOOO_qC/view",
   },
 ];
 
 const Certifications = () => {
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState(null);
+  const [blink, setBlink] = useState(true);
+
+  // 🔴 SAME BLINK EFFECT AS Experience.jsx
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBlink((prev) => !prev);
+    }, 700);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <>
-      <div
-        className="py-16 bg-cover bg-center text-white"
-        id="certificate"
-        style={{ backgroundImage: `url(${bgBlue})` }}
-      >
-        <motion.h2
-          className="text-3xl font-bold text-center mb-2 px-4"
-          initial={{ opacity: 0, y: -20 }}
+    <section
+      id="certifications"
+      className=" bg-black px-4 sm:px-6 lg:px-20 py-20"
+    >
+      <div className="max-w-7xl mx-auto ml-15">
+
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-14"
         >
-          CERTIFICATIONS
-        </motion.h2>
+          <motion.span
+            animate={{ opacity: blink ? 1 : 0.4 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-sm text-green-400"
+          >
+            <motion.span
+              animate={{ opacity: blink ? 1 : 0.4 }}
+              transition={{ duration: 0.4 }}
+              className="h-2 w-2 bg-green-400 rounded-full"
+            />
+            CERTIFICATIONS
+          </motion.span>
 
-        {/* Animated underline */}
-        <motion.div
-          className="h-[3px] bg-purple-500 rounded-full mx-auto mb-10"
-          initial={{ width: 0 }}
-          whileInView={{ width: 240 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-        />
+          <p className="text-gray-400 text-sm mt-3">
+            Professional Learning ({certifications.length})
+          </p>
+        </motion.div>
 
-        {/* RESPONSIVE GRID */}
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-6 px-4">
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
-              className={`border ${cert.border} rounded-xl px-5 py-4 bg-[#0d1025] hover:bg-[#141832] hover:scale-[1.03] transition-all duration-300 shadow-lg hover:shadow-2xl`}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="relative rounded-2xl p-6 bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-xl hover:border-green-400/40 transition"
             >
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-4 min-w-0">
-                  <img
-                    src={cert.icon}
-                    alt="certificate icon"
-                    className="w-12 h-12 rounded-lg object-contain bg-white p-1"
-                  />
-                  <div className="min-w-0">
-                    <h3 className="text-lg font-semibold leading-snug break-words">
-                      {cert.title}
-                    </h3>
-                    <p className="text-gray-300 text-sm break-words">
-                      {cert.platform}
-                    </p>
-                  </div>
-                </div>
+              <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mb-6">
+                {cert.icon}
+              </div>
 
-                {/* ICONS */}
-                <div className="flex items-center gap-3 shrink-0 text-white opacity-90">
-                  <Eye
-                    className="w-5 h-5 cursor-pointer hover:text-blue-300 transition hover:scale-125"
+              <h3 className="text-sm font-semibold text-white">
+                {cert.title}
+              </h3>
+
+              <p className="text-gray-400 text-sm mt-1">
+                {cert.platform}
+              </p>
+
+              <div className="h-px bg-white/10 my-6" />
+
+              <div className="flex items-center justify-between">
+                <span className="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-gray-300">
+                  Certificate
+                </span>
+
+                <div className="flex gap-4">
+                  <button
                     onClick={() => {
                       setCurrent(cert);
                       setOpen(true);
                     }}
-                  />
-                  <ExternalLink
-                    className="w-5 h-5 cursor-pointer hover:text-blue-300 transition hover:scale-125"
-                    onClick={() => window.open(cert.link, "_blank")}
-                  />
+                    className="text-gray-400 hover:text-green-400 transition"
+                  >
+                    <Eye size={18} />
+                  </button>
+
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-green-400 transition"
+                  >
+                    <ExternalLink size={18} />
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -146,53 +164,51 @@ const Certifications = () => {
         </div>
       </div>
 
-      {/* POPUP */}
+      {/* Preview Modal */}
       <AnimatePresence>
         {open && current && (
           <motion.div
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex justify-center items-center z-[9999] p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 backdrop-blur-md z-[100] flex items-center justify-center p-4"
+            onClick={() => setOpen(false)}
           >
             <motion.div
-              className="bg-[#0a0a0a] rounded-2xl p-4 w-full max-w-3xl shadow-2xl border border-gray-700"
-              initial={{ scale: 0.85 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.85 }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-3xl w-full bg-[#0a0a0a] border border-white/10 rounded-2xl p-4"
+              onClick={(e) => e.stopPropagation()}
             >
-              {/* Header */}
-              <div className="w-full flex justify-between items-center mb-3 px-2">
-                <h2 className="text-white font-semibold text-lg">
-                  {current.title}
-                </h2>
-
+              <div className="flex justify-between items-center mb-3">
                 <button
                   onClick={() => setOpen(false)}
-                  className="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded-lg text-sm transition hover:scale-110"
+                  className="text-gray-400 hover:text-red-400 transition"
                 >
-                  Close
+                  <X size={22} />
                 </button>
+
+                <a
+                  href={current.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-green-400 transition"
+                >
+                  <ExternalLink size={20} />
+                </a>
               </div>
 
-              {/* Image */}
-              <motion.div
-                className="w-full bg-black rounded-xl overflow-hidden border border-gray-600 max-h-[80vh]"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <img
-                  src={current.preview}
-                  alt="Certificate"
-                  className="w-full h-full object-contain"
-                />
-              </motion.div>
+              <img
+                src={current.preview}
+                alt={current.title}
+                className="w-full rounded-lg border border-white/10"
+              />
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </section>
   );
 };
 

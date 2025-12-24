@@ -1,157 +1,191 @@
-import React, { useState } from "react";
-import { Eye } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import goal from "./assets/goal.png";
-import CertificatePDF from "./assets/Pictures/Form3.png";
 
-export default function Achievements() {
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaAward, FaExternalLinkAlt } from "react-icons/fa";
+import { Eye, X } from "lucide-react";
+
+import CertificatePNG from "./assets/Pictures/Form3.png";
+
+const achievements = [
+  {
+    title: "Inter-College Hackathon Organizer",
+    description:
+      "Successfully conducted a large-scale inter-college hackathon with 200+ participants, overseeing planning, coordination, event flow, and judging processes.",
+    icon: <FaAward />,
+    date: "2024",
+  },
+  {
+    title: "Coimbatore District Cricket Association (2023–2024)",
+    description:
+      "Represented the Coimbatore District Cricket Association in official district-level cricket tournaments.",
+    icon: <FaAward />,
+    date: "2023–2024",
+  },
+  {
+    title: "South Zone – All India Cricket Tournament",
+    description:
+      "Represented the South Zone in the All India Cricket Tournament, competing at a national-level stage.",
+    icon: <FaAward />,
+    date: "2024–2025",
+    certificate: {
+      preview: CertificatePNG,
+      link: "https://drive.google.com/file/d/1ME5xuTNQKB_NAKlx_YTYkeJcZfHJvNxt/view?usp=sharing",
+    },
+  },
+];
+
+const Achievements = () => {
   const [open, setOpen] = useState(false);
+  const [current, setCurrent] = useState(null);
+  const [blink, setBlink] = useState(true);
+
+  // 🔴 Blink effect (same as Experience / Certifications)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBlink((prev) => !prev);
+    }, 700);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div
-      className="w-full flex flex-col items-center py-10 bg-black text-white px-4 sm:px-6 lg:px-10"
+    <section
       id="achievements"
+      className="w-full bg-black px-4 sm:px-6 lg:px-24 py-20"
     >
-      {/* TITLE */}
-      <motion.h1
-        className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-wide text-center"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        ACHIEVEMENTS & EXTRACURRICULAR
-      </motion.h1>
-
-      {/* UNDERLINE - responsive width */}
-      <motion.div
-        className="h-[3px] bg-purple-500 rounded-full mx-auto mb-10"
-        initial={{ width: 0 }}
-        whileInView={{ width: "70%" }}
-        transition={{ duration: 1.2, ease: "easeInOut" }}
-      />
-
-      {/* ACHIEVEMENT CARDS */}
-      <div className="flex flex-col gap-6 w-full items-center max-w-5xl">
-        {[
-          {
-            title: "Inter-College Hackathon Organizer",
-            desc: "Successfully conducted a large-scale inter-college hackathon with 200+ participants, overseeing planning, coordination, event flow, and judging processes.",
-            border: "border-red-400",
-          },
-          {
-            title: "Coimbatore District Cricket Association (2023–2024)",
-            desc: "Represented the Coimbatore District Cricket Association in official district-level cricket tournaments.",
-            border: "border-red-400",
-          },
-          {
-            title: "All India Cricket Tournament – South Zone (2024–2025)",
-            desc: "Represented the South Zone in the All India Cricket Tournament, competing at a national-level stage.",
-            border: "border-yellow-400",
-            certificate: true,
-          },
-        ].map((item, index) => (
-          <motion.div
-            key={index}
-            className={`w-full md:w-[85%] lg:w-[70%] border ${item.border} rounded-xl p-5 bg-black/40 backdrop-blur-md shadow-lg`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+      <div className="max-w-7xl mx-auto ml-15">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-14"
+        >
+          <motion.span
+            animate={{ opacity: blink ? 1 : 0.35 }}
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-sm text-green-400"
           >
-            <div className="flex gap-5 items-start">
-              <img src={goal} alt="icon" className="w-12 h-12 sm:w-14 sm:h-14" />
-              <div className="flex-1">
-                <div className="flex items-center justify-between">
-                  <h2 className="font-bold text-lg sm:text-xl">{item.title}</h2>
+            <motion.span
+              animate={{ opacity: blink ? 1 : 0 }}
+              transition={{ duration: 0.4 }}
+              className="h-2 w-2 bg-green-400 rounded-full"
+            />
+            ACHIEVEMENTS
+          </motion.span>
 
-                  {/* Certificate button */}
-                  {item.certificate && (
-                    <button
-                      onClick={() => setOpen(true)}
-                      className="flex items-center gap-2 text-white text-xs font-semibold px-3 py-1 rounded-full hover:bg-purple-600 transition"
-                    >
-                      <Eye className="w-4 h-4" />
-                    </button>
-                  )}
-                </div>
-                <p className="mt-2 text-sm sm:text-base text-gray-200 leading-relaxed">
-                  {item.desc}
-                </p>
+          <p className="text-gray-400 text-sm mt-3">
+            Awards & Recognition ({achievements.length})
+          </p>
+        </motion.div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {achievements.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="relative rounded-2xl p-6 bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-xl hover:border-green-400/40 transition"
+            >
+              <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-yellow-400 mb-6">
+                {item.icon}
               </div>
-            </div>
-          </motion.div>
-        ))}
+
+              <h3 className="text-sm font-semibold text-white">
+                {item.title}
+              </h3>
+
+              <p className="text-gray-400 text-sm mt-1">{item.date}</p>
+
+              <div className="h-px bg-white/10 my-6" />
+
+              <p className="text-gray-400 text-sm leading-relaxed">
+                {item.description}
+              </p>
+
+              <div className="mt-6 flex items-center justify-between">
+                <span className="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-gray-300">
+                  Achievement
+                </span>
+
+                {item.certificate && (
+                  <div className="flex gap-4">
+                    <button
+                      onClick={() => {
+                        setCurrent(item.certificate);
+                        setOpen(true);
+                      }}
+                      className="text-gray-400 hover:text-green-400 transition"
+                    >
+                      <Eye size={18} />
+                    </button>
+
+                    <a
+                      href={item.certificate.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-green-400 transition"
+                    >
+                      <FaExternalLinkAlt size={16} />
+                    </a>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
-      {/* POPUP FOR CERTIFICATE */}
+      {/* Modal */}
       <AnimatePresence>
-        {open && (
+        {open && current && (
           <motion.div
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex justify-center items-center z-[9999] p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 backdrop-blur-md z-[100] flex items-center justify-center p-4"
+            onClick={() => setOpen(false)}
           >
             <motion.div
-              className="bg-[#0a0a0a] rounded-2xl p-4 w-full max-w-xl sm:max-w-2xl shadow-2xl relative border border-gray-700"
-              initial={{ scale: 0.85 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.85 }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-xl w-full bg-[#0a0a0a] border border-white/10 rounded-2xl p-4"
+              onClick={(e) => e.stopPropagation()}
             >
-              {/* HEADER */}
-              <div className="w-full flex justify-between items-center mb-3 px-2">
-                <h2 className="text-white font-semibold text-lg sm:text-xl">Form 3</h2>
+              <div className="flex justify-between items-center mb-3">
+                <button
+                  onClick={() => setOpen(false)}
+                  className="text-gray-400 hover:text-red-400 transition"
+                >
+                  <X size={22} />
+                </button>
 
-                <div className="flex items-center gap-2">
-                  {/* Verification Link */}
-                  <a
-                    href="https://drive.google.com/file/d/1ME5xuTNQKB_NAKlx_YTYkeJcZfHJvNxt/view?usp=sharing"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg text-xs sm:text-sm flex items-center gap-1"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-4 h-4 sm:w-5 sm:h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </a>
-
-                  {/* CLOSE BUTTON */}
-                  <button
-                    onClick={() => setOpen(false)}
-                    className="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded-lg text-xs sm:text-sm"
-                  >
-                    Close
-                  </button>
-                </div>
+                <a
+                  href={current.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-green-400 transition"
+                >
+                  <FaExternalLinkAlt size={18} />
+                </a>
               </div>
 
-              {/* CERTIFICATE IMAGE */}
-              <motion.div
-                className="w-full bg-black rounded-xl overflow-hidden border border-gray-600"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <img
-                  src={CertificatePDF}
-                  alt="Certificate"
-                  className="w-full h-auto object-contain rounded-md"
-                />
-              </motion.div>
+              <img
+                src={current.preview}
+                alt="Achievement Certificate"
+                className="w-full rounded-lg border border-white/10"
+              />
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </section>
   );
-}
+};
+
+export default Achievements;

@@ -1,127 +1,173 @@
-import React, { useState } from "react";
-import { ExternalLink, Eye } from "lucide-react";
-import { motion } from "framer-motion";
-
-import article from "./assets/article.png";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Eye, X } from "lucide-react";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import AICTE from "./assets/Pictures/AICTE.png";
-import BgImage from "./assets/background1.png";
 
-export default function PublicationCard() {
+const publications = [
+  {
+    title:
+      "Sahayak: An AI-Powered Teaching Assistant for Multi-Grade Classrooms",
+    subtitle:
+      "TAMIL.AI: Bridging Language and Logic – Artificial Intelligence and Data Science",
+    description:
+      "Research on building an intelligent teaching assistant designed to support rural multi-grade classrooms through automated content delivery, student guidance, and adaptive learning assistance.",
+    platform: "Research Publication",
+    date: "2024",
+    preview: AICTE,
+    link: "https://drive.google.com/file/d/10YDZi8Kjs4rOlGyAS1cCgxsXoEj7LZr0/view?usp=sharing",
+  },
+];
+
+const Publications = () => {
   const [open, setOpen] = useState(false);
+  const [current, setCurrent] = useState(null);
+  const [blink, setBlink] = useState(true);
 
-  const lineVariant = {
-    hidden: { width: 0 },
-    visible: {
-      width: "210px",
-      transition: { duration: 1.2, ease: "easeInOut" },
-    },
-  };
+  // 🔴 Blink effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBlink((prev) => !prev);
+    }, 700);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <>
-      <div
-        style={{ backgroundImage: `url(${BgImage})`, backgroundSize: "cover" }}
-      >
-        {/* Heading */}
-        <h2
-          id="publications"
-          className="text-3xl md:text-4xl font-bold text-center text-white pt-10"
-        >
-          PUBLICATION
-        </h2>
-
+    <section
+      id="publications"
+      className="w-full bg-black px-4 sm:px-6 lg:px-24 py-20 "
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <motion.div
-          className="h-1 bg-purple-500 mx-auto rounded-full"
-          variants={lineVariant}
-          initial="hidden"
-          whileInView="visible"
-        />
-
-        {/* Card Container */}
-        <div className="w-full flex justify-center items-center pt-10 pb-20 px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="w-full max-w-3xl border border-blue-400 rounded-xl bg-black/40 backdrop-blur-md shadow-xl p-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0.4 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-14"
+        >
+          <motion.span
+            animate={{ opacity: blink ? 1 : 0.45 }}
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-sm text-green-400"
           >
-            <div className="text-white flex flex-col sm:flex-row items-start gap-4">
-              <img
-                src={article}
-                alt="Article Icon"
-                className="w-12 h-12 shrink-0"
-              />
+            <motion.span
+              animate={{ opacity: blink ? 1 : 0 }}
+              transition={{ duration: 0.4 }}
+              className="h-2 w-2 bg-green-400 rounded-full"
+            />
+            PUBLICATIONS
+          </motion.span>
+        </motion.div>
 
+        {/* List */}
+        <div className="space-y-6">
+          {publications.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 p-6 sm:p-8 rounded-2xl bg-[#0a0a0a] border border-white/10 hover:border-green-400/40 transition"
+            >
               <div className="flex-1">
-                <h2 className="font-bold text-lg sm:text-xl leading-tight">
-                  Sahayak: An AI-Powered Teaching Assistant for Multi-Grade
-                  Classrooms
-                  <br /> TAMIL.AI: BRIDGING LANGUAGE AND LOGIC Artificial
-                  Intelligence and Data Science
+                <div className="flex items-center gap-4 text-sm text-gray-400 mb-2">
+                  <span>{item.date}</span>
+                  <span className="text-green-400">{item.platform}</span>
+                </div>
+
+                <h2 className="font-bold text-lg sm:text-xl leading-tight text-white">
+                  {item.title}
+                  <br />
+                  <span className="text-green-400 text-sm">
+                    {item.subtitle}
+                  </span>
                 </h2>
 
-                <p className="mt-3 text-sm leading-relaxed text-gray-200">
-                  Research on building an intelligent teaching assistant
-                  designed to support rural multi-grade classrooms through
-                  automated content delivery, student guidance, and adaptive
-                  learning assistance.
+                <p className="mt-3 text-sm leading-relaxed text-gray-300 max-w-3xl">
+                  {item.description}
                 </p>
               </div>
 
-              <button
-                onClick={() => setOpen(true)}
-                className="p-2 rounded-full hover:bg-white/20 transition self-start"
-              >
-                <Eye className="w-6 h-6 text-white" />
-              </button>
-            </div>
-          </motion.div>
+              <div className="flex gap-4 self-start">
+                <button
+                  onClick={() => {
+                    setCurrent(item);
+                    setOpen(true);
+                  }}
+                  className="p-3 rounded-full border border-white/10 text-gray-400 hover:text-green-400 hover:border-green-400/40 transition"
+                >
+                  <Eye size={20} />
+                </button>
 
-          {/* Popup */}
-          {open && (
-            <div className="fixed inset-0 bg-black/90 backdrop-blur-sm flex justify-center items-center z-[9999] p-4">
-              <div className="bg-[#0a0a0a] rounded-2xl p-4 w-full max-w-3xl shadow-2xl border border-gray-700 relative">
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full border border-white/10 text-gray-400 hover:text-green-400 hover:border-green-400/40 transition"
+                >
+                  <FaExternalLinkAlt size={18} />
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
 
-                <h2 className="text-center text-white font-bold text-xl sm:text-2xl mb-4">
+      {/* Modal */}
+      <AnimatePresence>
+        {open && current && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/90 backdrop-blur-md z-[9999] flex items-center justify-center p-4"
+            onClick={() => setOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-4xl w-full bg-[#0a0a0a] border border-white/10 rounded-2xl p-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-between items-center mb-3">
+                <h2 className="text-white font-semibold text-lg">
                   SAHAYAK — Research Publication
                 </h2>
 
-                {/* Header Buttons */}
-                <div className="w-full flex justify-between items-center mb-3 px-2">
-                  <h2 className="text-white font-semibold text-lg">Certificate</h2>
+                <div className="flex items-center gap-3">
+                  <a
+                    href={current.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-green-400 transition"
+                  >
+                    <FaExternalLinkAlt size={18} />
+                  </a>
 
-                  <div className="flex items-center gap-2">
-                    <a
-                      href="https://drive.google.com/file/d/10YDZi8Kjs4rOlGyAS1cCgxsXoEj7LZr0/view?usp=sharing"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-lg text-sm flex items-center gap-1"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-
-                    <button
-                      onClick={() => setOpen(false)}
-                      className="bg-red-600 hover:bg-red-700 text-white px-4 py-1 rounded-lg text-sm"
-                    >
-                      Close
-                    </button>
-                  </div>
-                </div>
-
-                {/* Certificate Image */}
-                <div className="w-full bg-black rounded-xl overflow-hidden border border-gray-600">
-                  <img
-                    src={AICTE}
-                    alt="Certificate"
-                    className="w-full h-auto object-contain"
-                  />
+                  <button
+                    onClick={() => setOpen(false)}
+                    className="text-gray-400 hover:text-red-400 transition"
+                  >
+                    <X size={22} />
+                  </button>
                 </div>
               </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </>
+
+              <img
+                src={current.preview}
+                alt="Sahayak Publication Preview"
+                className="w-full rounded-lg border border-white/10"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
   );
-}
+};
+
+export default Publications;
