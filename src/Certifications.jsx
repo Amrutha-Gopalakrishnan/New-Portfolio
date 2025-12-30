@@ -6,7 +6,7 @@ import {
   SiGit,
   SiReact,
   SiPython,
-  SiTcs
+  SiTcs,
 } from "react-icons/si";
 
 import JS from "./assets/Pictures/JS.png";
@@ -66,50 +66,43 @@ const Certifications = () => {
   const [current, setCurrent] = useState(null);
   const [blink, setBlink] = useState(true);
 
-  // 🔴 SAME BLINK EFFECT AS Experience.jsx
   useEffect(() => {
     const interval = setInterval(() => {
       setBlink((prev) => !prev);
     }, 700);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section
       id="certifications"
-      className=" bg-black px-4 sm:px-6 lg:px-20 py-20"
+      className="bg-black px-4 sm:px-6 md:px-10 lg:px-20 py-16 sm:py-20"
     >
-      <div className="max-w-7xl mx-auto ml-15">
-
-        {/* Section Header */}
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-14"
+          className="mb-10 sm:mb-14"
         >
           <motion.span
             animate={{ opacity: blink ? 1 : 0.4 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-sm text-green-400"
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-xs sm:text-sm text-green-400"
           >
-            <motion.span
-              animate={{ opacity: blink ? 1 : 0.4 }}
-              transition={{ duration: 0.4 }}
-              className="h-2 w-2 bg-green-400 rounded-full"
-            />
+            <span className="h-2 w-2 bg-green-400 rounded-full" />
             CERTIFICATIONS
           </motion.span>
 
-          <p className="text-gray-400 text-sm mt-3">
+          <p className="text-gray-400 text-xs sm:text-sm mt-3">
             Professional Learning ({certifications.length})
           </p>
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
@@ -117,24 +110,24 @@ const Certifications = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative rounded-2xl p-6 bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-xl hover:border-green-400/40 transition"
+              className="relative rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-xl hover:border-green-400/40 transition"
             >
-              <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mb-6">
+              <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center mb-5">
                 {cert.icon}
               </div>
 
-              <h3 className="text-sm font-semibold text-white">
+              <h3 className="text-sm sm:text-base font-semibold text-white leading-snug">
                 {cert.title}
               </h3>
 
-              <p className="text-gray-400 text-sm mt-1">
+              <p className="text-gray-400 text-xs sm:text-sm mt-1">
                 {cert.platform}
               </p>
 
-              <div className="h-px bg-white/10 my-6" />
+              <div className="h-px bg-white/10 my-5 sm:my-6" />
 
               <div className="flex items-center justify-between">
-                <span className="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-gray-300">
+                <span className="px-3 py-1 text-xs sm:text-sm rounded-full bg-white/5 border border-white/10 text-gray-300">
                   Certificate
                 </span>
 
@@ -146,7 +139,7 @@ const Certifications = () => {
                     }}
                     className="text-gray-400 hover:text-green-400 transition"
                   >
-                    <Eye size={18} />
+                    <Eye size={20} />
                   </button>
 
                   <a
@@ -155,7 +148,7 @@ const Certifications = () => {
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-green-400 transition"
                   >
-                    <ExternalLink size={18} />
+                    <ExternalLink size={20} />
                   </a>
                 </div>
               </div>
@@ -164,14 +157,14 @@ const Certifications = () => {
         </div>
       </div>
 
-      {/* Preview Modal */}
+      {/* Modal */}
       <AnimatePresence>
         {open && current && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 backdrop-blur-md z-[100] flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/90 backdrop-blur-md z-[100] flex items-center justify-center p-4 overflow-y-auto"
             onClick={() => setOpen(false)}
           >
             <motion.div
@@ -184,7 +177,7 @@ const Certifications = () => {
               <div className="flex justify-between items-center mb-3">
                 <button
                   onClick={() => setOpen(false)}
-                  className="text-gray-400 hover:text-red-400 transition"
+                  className="text-gray-400 hover:text-red-400"
                 >
                   <X size={22} />
                 </button>
@@ -193,7 +186,7 @@ const Certifications = () => {
                   href={current.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-green-400 transition"
+                  className="text-gray-400 hover:text-green-400"
                 >
                   <ExternalLink size={20} />
                 </a>
@@ -202,7 +195,7 @@ const Certifications = () => {
               <img
                 src={current.preview}
                 alt={current.title}
-                className="w-full rounded-lg border border-white/10"
+                className="w-full max-h-[75vh] object-contain rounded-lg border border-white/10"
               />
             </motion.div>
           </motion.div>

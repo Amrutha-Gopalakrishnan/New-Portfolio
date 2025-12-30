@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -38,7 +37,11 @@ const Sidebar = () => {
       const offset = window.scrollY + 200;
       navItems.forEach(({ id }) => {
         const section = document.getElementById(id);
-        if (section && offset >= section.offsetTop && offset < section.offsetTop + section.offsetHeight) {
+        if (
+          section &&
+          offset >= section.offsetTop &&
+          offset < section.offsetTop + section.offsetHeight
+        ) {
           setActive(id);
         }
       });
@@ -54,15 +57,24 @@ const Sidebar = () => {
           <a
             href={`#${item.id}`}
             onClick={() => mobile && setOpen(false)}
-            className={`flex items-center gap-4 px-4 py-3 rounded-lg transition
-              ${active === item.id
-                ? "bg-emerald-500 text-white"
-                : "text-gray-400 hover:bg-white/5 hover:text-white"
+            className={`group flex items-center gap-4 px-4 py-3 rounded-lg transition
+              ${
+                active === item.id
+                  ? "bg-emerald-500 text-white"
+                  : "text-gray-400 hover:bg-white/5 hover:text-white"
               }`}
           >
             <span className="text-lg">{item.icon}</span>
-            {/* Show label only on hover */}
-            <span className="text-sm font-medium overflow-hidden max-w-0 group-hover:max-w-xs transition-all duration-300">
+
+            {/* Label */}
+            <span
+              className={`text-sm font-medium whitespace-nowrap transition-all duration-300
+                ${
+                  mobile
+                    ? "opacity-100"
+                    : "opacity-0 group-hover:opacity-100"
+                }`}
+            >
               {item.label}
             </span>
           </a>
@@ -74,13 +86,12 @@ const Sidebar = () => {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="hidden md:flex fixed left-0 top-0 h-screen w-25 items-center content-center hover:w-56 group bg-[#0b0b0b] border-r border-white/5 px-2 py-4 z-50 transition-all duration-300">
-        <div className="w-full items-center">
-          {/* Logo */}
-          <h1 className="text-white text-xl font-semibold tracking-tight">
-            <span className="text-emerald-400 text-5xl">A</span>
-            <span className=" opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                mrutha-dev
+      <aside className="hidden md:flex fixed left-0 top-0 h-screen w-16 hover:w-56 group bg-[#0b0b0b] border-r border-white/5 px-2 py-4 z-50 transition-all duration-300">
+        <div className="w-full">
+          <h1 className="text-white text-xl font-semibold tracking-tight px-2 mb-6">
+            <span className="text-emerald-400 text-3xl">A</span>
+            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">
+              mrutha-dev
             </span>
           </h1>
 
@@ -107,6 +118,7 @@ const Sidebar = () => {
               onClick={() => setOpen(false)}
               className="fixed inset-0 bg-black z-40"
             />
+
             <motion.aside
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
@@ -114,7 +126,7 @@ const Sidebar = () => {
               transition={{ type: "spring", stiffness: 260, damping: 25 }}
               className="fixed left-0 top-0 h-screen w-72 bg-[#0b0b0b] z-50 px-5 py-6"
             >
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between mb-6">
                 <h1 className="text-white text-lg font-semibold">
                   Amrutha<span className="text-emerald-400">-dev</span>
                 </h1>
@@ -122,6 +134,7 @@ const Sidebar = () => {
                   <FaTimes />
                 </button>
               </div>
+
               <NavLinks mobile />
             </motion.aside>
           </>

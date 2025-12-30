@@ -139,7 +139,7 @@ const Contact = () => {
                 ))}
               </ul>
 
-              <div className="flex gap-6 text-2xl text-gray-600 pt-4">
+              <div className="flex gap-6 text-2xl text-gray-600 pt-4 ">
                 <a href="https://github.com/Amrutha-Gopalakrishnan" className="hover:text-[#00ff9d] transition">
                   <FaGithub />
                 </a>

@@ -20,24 +20,21 @@ const projects = [
   },
   {
     title: "BLOOD BUMS",
-    description:
-      "BloodBums is a responsive web application that connects blood donors with recipients by matching requests based on blood group and location. It allows users to post urgent requirements, browse available donors, and manage requests through a clean, mobile-friendly interface.",
+    description: 'BloodBums is a modern, fully responsive gym landing page designed and developed for a fitness client using HTML, CSS, and JavaScript. It showcases the client’s services with a bold hero section, membership plans, class highlights, and clear call‑to‑action flows optimized for conversions on both desktop and mobile. The project demonstrates professional UI development, branding alignment, and production‑ready frontend delivery tailored to the client’s business needs.',
     image: Blood,
     liveLink: "https://bloodbums.netlify.app/",
     tags: ["JavaScript", "Tailwind CSS"],
   },
   {
     title: "SILAMBARSAN",
-    description:
-      "This sample portfolio for actor Silambarasan TR showcases his cinematic journey, iconic performances, and multifaceted talent as an actor, singer, and director.",
+    description: `This sample portfolio for actor Silambarasan TR (Simbu) showcases his cinematic journey, iconic performances, and multifaceted talent as an actor, singer, and director. Designed with a modern and elegant interface, the site highlights Simbu's filmography, achievements, and public presence, offering fans and industry professionals a dynamic glimpse into his legacy and impact on Tamil cinema.`, 
     image: simbu,
     liveLink: "https://amruthagopal16.wixsite.com/simbu",
     tags: ["UI/UX", "Design", "Portfolio"],
   },
   {
     title: "SKILL DRAGON EDITING",
-    description:
-      "This video editing interface is a sleek and intuitive UI design built for modern creators with a clean dashboard and efficient workflow.",
+    description: "This video editing interface is a sleek and intuitive UI design built for modern creators. With a focus on user-friendly controls, streamlined workflows, and real-time preview capabilities, the layout empowers users to easily trim, cut, layer, and enhance videos. The clean dashboard, timeline editor, and smart tool placement ensure an efficient editing experience that balances functionality with aesthetics—ideal for both beginners and professionals.",
     image: SD,
     liveLink:
       "https://www.figma.com/proto/La7YL2Oi8SODyCVld8iZr4/Untitled",
@@ -45,16 +42,14 @@ const projects = [
   },
   {
     title: "MY TRIP RAJA",
-    description:
-      "MyTripRaja is an online travel platform offering curated tour packages, real-time hotel bookings, and customizable itineraries across India.",
+    description: "MyTripRaja is an online travel platform dedicated to providing seamless travel experiences across India. Designed for both leisure and business travelers, it offers curated tour packages, real-time hotel bookings, and customizable itineraries to major destinations. With a user-friendly interface and multilingual support, MyTripRaja enables quick comparison of prices, local experiences, and instant booking confirmations.",
     image: Trip,
     liveLink: "https://www.mytripraja.com/",
     tags: ["React", "Travel", "AI"],
   },
   {
     title: "CAMPUS FIND",
-    description:
-      "CampusFind is a campus-focused lost-and-found platform designed exclusively for SRCAS students to report and find lost items.",
+    description: "CampusFind is a campus‑focused lost‑and‑found platform where students can report lost items, upload details and images, and browse or search for found items using filters like category and location. The app provides an organized dashboard for tracking item status, encourages quick communication between owners and finders. This is specifically designed for a college (SRCAS)- No one can able to login and use apart from SRCAS college students.",
     image: CF,
     liveLink: "https://campusfindsrcas.vercel.app/",
     tags: ["Lost & Found", "College App"],

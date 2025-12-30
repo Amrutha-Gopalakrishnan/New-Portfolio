@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaAward, FaExternalLinkAlt } from "react-icons/fa";
@@ -39,49 +38,43 @@ const Achievements = () => {
   const [current, setCurrent] = useState(null);
   const [blink, setBlink] = useState(true);
 
-  // 🔴 Blink effect (same as Experience / Certifications)
   useEffect(() => {
     const interval = setInterval(() => {
       setBlink((prev) => !prev);
     }, 700);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section
       id="achievements"
-      className="w-full bg-black px-4 sm:px-6 lg:px-24 py-20"
+      className="w-full bg-black px-4 sm:px-6 md:px-10 lg:px-24 py-16 sm:py-20"
     >
-      <div className="max-w-7xl mx-auto ml-15">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-14"
+          className="mb-10 sm:mb-14"
         >
           <motion.span
             animate={{ opacity: blink ? 1 : 0.35 }}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-sm text-green-400"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 text-xs sm:text-sm text-green-400"
           >
-            <motion.span
-              animate={{ opacity: blink ? 1 : 0 }}
-              transition={{ duration: 0.4 }}
-              className="h-2 w-2 bg-green-400 rounded-full"
-            />
+            <span className="h-2 w-2 bg-green-400 rounded-full" />
             ACHIEVEMENTS
           </motion.span>
 
-          <p className="text-gray-400 text-sm mt-3">
+          <p className="text-gray-400 text-xs sm:text-sm mt-3">
             Awards & Recognition ({achievements.length})
           </p>
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
           {achievements.map((item, index) => (
             <motion.div
               key={index}
@@ -89,26 +82,28 @@ const Achievements = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative rounded-2xl p-6 bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-xl hover:border-green-400/40 transition"
+              className="relative rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-xl hover:border-green-400/40 transition"
             >
-              <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-yellow-400 mb-6">
+              <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-yellow-400 mb-5">
                 {item.icon}
               </div>
 
-              <h3 className="text-sm font-semibold text-white">
+              <h3 className="text-sm sm:text-base font-semibold text-white leading-snug">
                 {item.title}
               </h3>
 
-              <p className="text-gray-400 text-sm mt-1">{item.date}</p>
+              <p className="text-gray-400 text-xs sm:text-sm mt-1">
+                {item.date}
+              </p>
 
-              <div className="h-px bg-white/10 my-6" />
+              <div className="h-px bg-white/10 my-5 sm:my-6" />
 
               <p className="text-gray-400 text-sm leading-relaxed">
                 {item.description}
               </p>
 
               <div className="mt-6 flex items-center justify-between">
-                <span className="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-gray-300">
+                <span className="px-3 py-1 text-xs sm:text-sm rounded-full bg-white/5 border border-white/10 text-gray-300">
                   Achievement
                 </span>
 
@@ -121,7 +116,7 @@ const Achievements = () => {
                       }}
                       className="text-gray-400 hover:text-green-400 transition"
                     >
-                      <Eye size={18} />
+                      <Eye size={20} />
                     </button>
 
                     <a
@@ -130,7 +125,7 @@ const Achievements = () => {
                       rel="noopener noreferrer"
                       className="text-gray-400 hover:text-green-400 transition"
                     >
-                      <FaExternalLinkAlt size={16} />
+                      <FaExternalLinkAlt size={18} />
                     </a>
                   </div>
                 )}
@@ -147,7 +142,7 @@ const Achievements = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 backdrop-blur-md z-[100] flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/90 backdrop-blur-md z-[100] flex items-center justify-center p-4 overflow-y-auto"
             onClick={() => setOpen(false)}
           >
             <motion.div
@@ -160,7 +155,7 @@ const Achievements = () => {
               <div className="flex justify-between items-center mb-3">
                 <button
                   onClick={() => setOpen(false)}
-                  className="text-gray-400 hover:text-red-400 transition"
+                  className="text-gray-400 hover:text-red-400"
                 >
                   <X size={22} />
                 </button>
@@ -169,7 +164,7 @@ const Achievements = () => {
                   href={current.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-green-400 transition"
+                  className="text-gray-400 hover:text-green-400"
                 >
                   <FaExternalLinkAlt size={18} />
                 </a>
@@ -178,7 +173,7 @@ const Achievements = () => {
               <img
                 src={current.preview}
                 alt="Achievement Certificate"
-                className="w-full rounded-lg border border-white/10"
+                className="w-full max-h-[75vh] object-contain rounded-lg border border-white/10"
               />
             </motion.div>
           </motion.div>
