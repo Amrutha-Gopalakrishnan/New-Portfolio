@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import Asha from "./assets/Asha.png";
+import Asha from "./assets/Asha.jpg";
 import Blood from "./assets/Blood.png";
-import Sahayak from "./assets/Sahayak.png";
-import simbu from "./assets/simbu.png";
 import SD from "./assets/SD.png";
 import Trip from "./assets/tripraja.png";
 import CF from "./assets/CF.png";
@@ -24,13 +22,6 @@ const projects = [
     image: Blood,
     liveLink: "https://bloodbums.netlify.app/",
     tags: ["JavaScript", "Tailwind CSS"],
-  },
-  {
-    title: "SILAMBARSAN",
-    description: `This sample portfolio for actor Silambarasan TR (Simbu) showcases his cinematic journey, iconic performances, and multifaceted talent as an actor, singer, and director. Designed with a modern and elegant interface, the site highlights Simbu's filmography, achievements, and public presence, offering fans and industry professionals a dynamic glimpse into his legacy and impact on Tamil cinema.`, 
-    image: simbu,
-    liveLink: "https://amruthagopal16.wixsite.com/simbu",
-    tags: ["UI/UX", "Design", "Portfolio"],
   },
   {
     title: "SKILL DRAGON EDITING",

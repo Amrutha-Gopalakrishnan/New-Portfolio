@@ -19,7 +19,7 @@ function App() {
       <Sidebar />
 
       {/* Main Content Area */}
-      <main className="flex-1 md:ml-20 lg:ml-24 transition-all duration-300">
+      <main className="flex-1">
         <Home />
         <About />
         <Tech />

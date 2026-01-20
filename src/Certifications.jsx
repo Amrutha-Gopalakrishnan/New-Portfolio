@@ -15,6 +15,7 @@ import ReactCert from "./assets/Pictures/React.png";
 import Python from "./assets/Pictures/Python.png";
 import Communication from "./assets/Pictures/Communication.png";
 import SoftSkills from "./assets/Pictures/SoftSkills.png";
+import Cisco from "./assets/Pictures/Cisco.png";
 
 const certifications = [
   {
@@ -23,6 +24,13 @@ const certifications = [
     icon: <SiJavascript className="text-yellow-400" size={20} />,
     preview: JS,
     link: "https://www.coursera.org/account/accomplishments/verify/MNK1STQH7X0O",
+  },
+    {
+    title: "JavaScript Essentials 2",
+    platform: "CISCO",
+    icon: <SiJavascript className="text-yellow-400" size={20} />,
+    preview: Cisco,
+    link: "https://drive.google.com/file/d/1KQDu2-1xQ60HZHgrPvBpfBopJQdirtco/view?usp=sharing",
   },
   {
     title: "React Basic",
