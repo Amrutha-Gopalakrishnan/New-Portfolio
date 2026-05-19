@@ -7,7 +7,7 @@ import SD from "./assets/SD.png";
 import Trip from "./assets/tripraja.png";
 import CF from "./assets/CF.png";
 import Nex from "./assets/NexFlow.jpeg"
-import GK from "./assets/Gk.png";
+import GK from "./assets/GK.png";
 
 const projects = [
   // {
