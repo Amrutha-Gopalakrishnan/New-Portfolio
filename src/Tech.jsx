@@ -8,6 +8,7 @@ import {
   FaPython,
   FaGitAlt,
   FaGithub,
+  FaShopify,
 } from "react-icons/fa";
 import {
   SiTailwindcss,
@@ -53,6 +54,7 @@ const techStack = {
     { name: "Canva", icon: <SiCanva className="text-purple-400" /> },
     { name: "Netlify", icon: <SiNetlify className="text-sky-400" /> },
     { name: "Firebase", icon: <SiFirebase className="text-orange-500" /> },
+    { name: "Shopify", icon: <FaShopify className="text-green-500" /> },
   ],
 };
 
@@ -111,7 +113,7 @@ const TechStack = () => {
               {category}
             </motion.h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {items.map((skill, index) => (
                 <motion.div
                   key={skill.name}

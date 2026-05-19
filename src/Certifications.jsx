@@ -7,8 +7,10 @@ import {
   SiReact,
   SiPython,
   SiTcs,
+  SiAnthropic
 } from "react-icons/si";
 
+import IBM from "./assets/ibm.png";
 import JS from "./assets/Pictures/JS.png";
 import Git from "./assets/Pictures/Git.png";
 import ReactCert from "./assets/Pictures/React.png";
@@ -16,6 +18,10 @@ import Python from "./assets/Pictures/Python.png";
 import Communication from "./assets/Pictures/Communication.png";
 import SoftSkills from "./assets/Pictures/SoftSkills.png";
 import Cisco from "./assets/Pictures/Cisco.png";
+import FS from "./assets/Pictures/FS.jpg";
+import Software from "./assets/Pictures/Software.jpg";
+import NQT from "./assets/Pictures/TCS NQT.jpg";
+import MCP from "./assets/Pictures/MCP.jpg"
 
 const certifications = [
   {
@@ -25,6 +31,50 @@ const certifications = [
     preview: JS,
     link: "https://www.coursera.org/account/accomplishments/verify/MNK1STQH7X0O",
   },
+    {
+    title: "Introduction to Model Context Protocol",
+    platform: "Anthropic",
+    icon: <SiAnthropic className="text-black-400" size={20} />,
+    preview: MCP,
+    link: "https://verify.skilljar.com/c/npjxzs29wopk",
+  },
+  {
+  title: "Full Stack Software Developer Assessment",
+  platform: "IBM – COURSERA",
+  icon: (
+    <img
+      src={IBM}
+      alt="IBM"
+      className="w-6 h-6 object-contain"
+    />
+  ),
+  preview: FS,
+  link: "https://coursera.org/share/4d1b9d5d8e555dd194dee7f464f14c0d",
+},
+
+  {
+  title: "Software Developer Career Guide and Interview Preparation",
+  platform: "IBM – COURSERA",
+  icon: (
+    <img
+      src={IBM}
+      alt="IBM"
+      className="w-6 h-6 object-contain"
+    />
+  ),
+  preview: Software,
+  link: "https://coursera.org/share/be2f14e639d367339e34f294c6388610",
+},
+
+  {
+  title: "TCS NQT - National Qualifier Test",
+  platform: "TCSiON",
+  icon: <SiTcs className="text-blue-400" size={20} />,
+  preview: NQT,
+  link: "https://drive.google.com/file/d/16Wemcty61l2RAmeDaK3QcFFTPeq-XiaX/view?usp=sharing",
+},
+
+
     {
     title: "JavaScript Essentials 2",
     platform: "CISCO",

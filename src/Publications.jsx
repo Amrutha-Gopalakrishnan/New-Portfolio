@@ -3,17 +3,29 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Eye, X } from "lucide-react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import AICTE from "./assets/Pictures/AICTE.png";
-
+import IJNRD from "./assets/Pictures/IJNRD.jpg";
 const publications = [
-  {
+{
+  title:
+    "Performance and Scalability Optimization of AI Models for Real-World Data Applications",
+  subtitle:
+    "International Journal of Novel Research and Development (IJNRD)",
+  description:
+    "Published a research paper focused on improving the performance, efficiency, and scalability of AI models for real-world data applications. The study explores optimization techniques to enhance model adaptability, processing efficiency, and practical implementation across diverse data-driven environments.",
+  platform: "Research Publication",
+  date: "2026",
+  preview: IJNRD,
+  link: "https://drive.google.com/file/d/1aqWCqlubnwyidWN2X0aG4QqBgM_n1_ti/view?usp=sharing",
+},
+   {
     title:
       "Sahayak: An AI-Powered Teaching Assistant for Multi-Grade Classrooms",
     subtitle:
-      "TAMIL.AI: Bridging Language and Logic – Artificial Intelligence and Data Science",
+      "TAMIL.AI: Bridging Language and Logic – Artificial Intelligence and Data Science, AICTE VAANI",
     description:
       "Research on building an intelligent teaching assistant designed to support rural multi-grade classrooms through automated content delivery, student guidance, and adaptive learning assistance.",
     platform: "Research Publication",
-    date: "2024",
+    date: "2025",
     preview: AICTE,
     link: "https://drive.google.com/file/d/10YDZi8Kjs4rOlGyAS1cCgxsXoEj7LZr0/view?usp=sharing",
   },

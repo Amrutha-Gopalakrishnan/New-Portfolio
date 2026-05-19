@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import Asha from "./assets/Asha.jpg";
+// import Asha from "./assets/Asha.jpg";
 import Blood from "./assets/Blood.png";
 import SD from "./assets/SD.png";
 import Trip from "./assets/tripraja.png";
 import CF from "./assets/CF.png";
+import Nex from "./assets/NexFlow.jpeg"
+import GK from "./assets/Gk.png";
 
 const projects = [
-  {
-    title: "ASHA AI",
-    description:
-      "Asha AI is an intelligent career support platform that integrates an AI-powered chatbot for real-time career guidance, personalized recommendations, and resources. It features dynamic job listings with advanced filtering, user authentication, profile management, and a clean, responsive UI. Designed to empower users with instant insights and streamlined job discovery, Asha AI bridges technology and career development in a user-centric experience.",
-    image: Asha,
-    liveLink: "https://ashaa.netlify.app/",
-    tags: ["React", "AI"],
-  },
+  // {
+  //   title: "ASHA AI",
+  //   description:
+  //     "Asha AI is an intelligent career support platform that integrates an AI-powered chatbot for real-time career guidance, personalized recommendations, and resources. It features dynamic job listings with advanced filtering, user authentication, profile management, and a clean, responsive UI. Designed to empower users with instant insights and streamlined job discovery, Asha AI bridges technology and career development in a user-centric experience.",
+  //   image: Asha,
+  //   liveLink: "https://ashaa.netlify.app/",
+  //   tags: ["React", "AI"],
+  // },
   {
     title: "BLOOD BUMS",
     description: 'BloodBums is a modern, fully responsive gym landing page designed and developed for a fitness client using HTML, CSS, and JavaScript. It showcases the client’s services with a bold hero section, membership plans, class highlights, and clear call‑to‑action flows optimized for conversions on both desktop and mobile. The project demonstrates professional UI development, branding alignment, and production‑ready frontend delivery tailored to the client’s business needs.',
@@ -45,6 +47,21 @@ const projects = [
     liveLink: "https://campusfindsrcas.vercel.app/",
     tags: ["Lost & Found", "College App"],
   },
+  {
+    title: "NEXFLOW ENGINEERING",
+description: "Hosted and deployed the official website for Nexflow Engineering, ensuring seamless domain configuration, website accessibility, and reliable online presence. Managed the domain setup and publishing process to make the platform live and accessible for users while maintaining smooth website performance.",
+image: Nex,
+liveLink: "https://www.nexflowengineering.com/",
+tags: ["Website Hosting", "Domain Management"],
+  },
+
+  {
+    title: "PORTFOLIO",
+description: "Built a clean and professional personal portfolio website to highlight individual profile, background, achievements, and services while creating a strong digital presence. Designed with a simple, elegant UI and responsive layout for a seamless experience across devices.",
+image: GK,
+liveLink: "https://gopalakrishnan-ecru.vercel.app/",
+tags: ["Personal Website", "Portfolio"],
+  }
 ];
 
 const Projects = () => {
@@ -80,13 +97,13 @@ const Projects = () => {
           </motion.span>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white">
-            Selected projects <br />
+            Personal and Client projects <br />
             <span className="text-gray-400">that actually shipped</span>
           </h2>
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -101,7 +118,7 @@ const Projects = () => {
               className="group [perspective:1200px]"
             >
               <div
-                className={`relative h-[480px] w-full transition-transform duration-700
+                className={`relative h-[280px] sm:h-[300px] lg:h-[280px] w-full transition-transform duration-700
                 [transform-style:preserve-3d]
                 ${activeIndex === index ? "[transform:rotateY(180deg)]" : ""}
                 group-hover:[transform:rotateY(180deg)]`}
@@ -116,21 +133,21 @@ const Projects = () => {
                 </div>
 
                 {/* BACK */}
-                <div className="absolute inset-0 rounded-2xl bg-[#0c0c0c] border border-white/10 p-6 backface-hidden [transform:rotateY(180deg)] flex flex-col justify-between">
+                <div className="absolute inset-0 rounded-2xl bg-[#0c0c0c] border border-white/10 p-4 sm:p-5 backface-hidden [transform:rotateY(180deg)] flex flex-col justify-between overflow-y-auto">
                   <div>
-                    <h3 className="text-xl font-semibold text-white mb-3">
+                    <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">
                       {project.title}
                     </h3>
 
-                    <p className="text-gray-400 text-sm leading-relaxed">
+                    <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-2 mt-4">
+                    <div className="flex flex-wrap gap-2 mt-2 sm:mt-3">
                       {project.tags.map((tag, i) => (
                         <span
                           key={i}
-                          className="text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300"
+                          className="text-xs px-2 sm:px-3 py-1 rounded-full bg-white/5 text-gray-300"
                         >
                           {tag}
                         </span>
@@ -142,7 +159,7 @@ const Projects = () => {
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center ml-20 gap-2 text-sm font-semibold text-black bg-green-400 px-5 py-2 rounded-full hover:scale-105 transition self-start"
+                    className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-black bg-green-400 px-3 sm:px-5 py-2 rounded-full hover:scale-105 transition self-start mt-3"
                     onClick={(e) => e.stopPropagation()}
                   >
                     Live Project <FaExternalLinkAlt size={12} />
@@ -158,3 +175,4 @@ const Projects = () => {
 };
 
 export default Projects;
+
