@@ -7,29 +7,40 @@ import CertificatePNG from "./assets/Pictures/Form3.png";
 
 const achievements = [
   {
+  title: "Israel–India Global Innovators Hackathon",
+  description:"Finalist in the India–Israel Global Innovators Hackathon 2026.\nCollaborated on innovation-driven solutions with global participants and industry experts.",
+  icon: <FaAward />,
+  date: "2026",
+  tag: "Finalist"
+},
+    {
+    title: "South Zone – All India Cricket Tournament",
+    description:
+      "Represented the South Zone in the All India Cricket Tournament, competing at a national-level stage with different teams and Universtites.",
+    icon: <FaAward />,
+    date: "2024–2025",
+    tag: "Achivement",
+    certificate: {
+      preview: CertificatePNG,
+      link: "https://drive.google.com/file/d/1ME5xuTNQKB_NAKlx_YTYkeJcZfHJvNxt/view?usp=sharing",
+    },
+  },
+
+  {
     title: "Inter-College Hackathon Organizer",
     description:
       "Successfully conducted a large-scale inter-college hackathon with 200+ participants, overseeing planning, coordination, event flow, and judging processes.",
     icon: <FaAward />,
     date: "2024",
+    tag: "Achivement"
   },
   {
-    title: "Coimbatore District Cricket Association (2023–2024)",
+    title: "Coimbatore District Cricket Association",
     description:
       "Represented the Coimbatore District Cricket Association in official district-level cricket tournaments.",
     icon: <FaAward />,
     date: "2023–2024",
-  },
-  {
-    title: "South Zone – All India Cricket Tournament",
-    description:
-      "Represented the South Zone in the All India Cricket Tournament, competing at a national-level stage.",
-    icon: <FaAward />,
-    date: "2024–2025",
-    certificate: {
-      preview: CertificatePNG,
-      link: "https://drive.google.com/file/d/1ME5xuTNQKB_NAKlx_YTYkeJcZfHJvNxt/view?usp=sharing",
-    },
+    tag: "Achivement"
   },
 ];
 
@@ -104,7 +115,7 @@ const Achievements = () => {
 
               <div className="mt-6 flex items-center justify-between">
                 <span className="px-3 py-1 text-xs sm:text-sm rounded-full bg-white/5 border border-white/10 text-gray-300">
-                  Achievement
+                  {item.tag}
                 </span>
 
                 {item.certificate && (

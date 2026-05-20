@@ -1,16 +1,18 @@
+import React, { Suspense, lazy } from 'react';
 import Sidebar from './Sidebar';
 import Home from './Home';
-import React from 'react';
-import About from './About';
 import 'aos/dist/aos.css';
-import Projects from './Project';
-import Education from './Education';
-import Contact from './Contact'
-import Tech from './Tech'
-import Experience from './Experience';
-import Certifications from './Certifications';
-import Publications from './Publications';
-import Achievements from './Achievements';
+
+// Lazy load non-critical sections below the fold to improve LCP and bundle size
+const About = lazy(() => import('./About'));
+const Tech = lazy(() => import('./Tech'));
+const Projects = lazy(() => import('./Project'));
+const Experience = lazy(() => import('./Experience'));
+const Certifications = lazy(() => import('./Certifications'));
+const Achievements = lazy(() => import('./Achievements'));
+const Publications = lazy(() => import('./Publications'));
+const Education = lazy(() => import('./Education'));
+const Contact = lazy(() => import('./Contact'));
 
 function App() {
   return (
@@ -20,16 +22,20 @@ function App() {
 
       {/* Main Content Area */}
       <main className="flex-1">
+        {/* Home is critical for LCP, load eagerly */}
         <Home />
-        <About />
-        <Tech />
-        <Projects />
-        <Experience />
-        <Certifications />
-        <Achievements />
-        <Publications />
-        <Education />
-        <Contact />
+        
+        <Suspense fallback={<div className="flex justify-center items-center min-h-[50vh]"><div className="w-10 h-10 border-4 border-t-blue-500 rounded-full animate-spin"></div></div>}>
+          <About />
+          <Tech />
+          <Projects />
+          <Experience />
+          <Certifications />
+          <Achievements />
+          <Publications />
+          <Education />
+          <Contact />
+        </Suspense>
       </main>
     </div>
   );
