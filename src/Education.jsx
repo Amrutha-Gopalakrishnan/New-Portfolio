@@ -57,16 +57,16 @@ const EducationExperience = () => {
             EDUCATION
           </motion.span>
 
-          <h2 className="mt-6 text-3xl sm:text-4xl lg:text-6xl font-light text-white leading-tight">
-            Learning, building,
-            <br />
-            <span className="text-gray-400">and evolving over time</span>
+                                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-snug">
+           Learning. Building. Evolving
+
           </h2>
+
         </motion.div>
 
         {/* Timeline */}
         <div className="relative">
-          <div className="hidden lg:block absolute left-[120px] top-0 bottom-0 w-px bg-white/10" />
+          <div className="hidden lg:block absolute left-[144px] top-0 bottom-0 w-px bg-white/10" />
 
           <div className="space-y-16 lg:space-y-24">
             {timeline.map((item, index) => (
@@ -83,7 +83,7 @@ const EducationExperience = () => {
                 </div>
 
                 <div className="relative">
-                  <div className="hidden lg:block absolute -left-[33px] top-2 w-4 h-4 rounded-full bg-green-400" />
+                  <div className="hidden lg:block absolute -left-8 top-2 w-4 h-4 rounded-full bg-green-400" />
 
                   <div className="mb-3 text-white/80">
                     {item.icon}

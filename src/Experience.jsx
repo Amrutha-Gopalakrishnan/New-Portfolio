@@ -26,7 +26,7 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="w-full bg-black px-4 sm:px-6 md:px-10 lg:px-24 py-16 sm:py-20"
+      className="w-full bg-black px-4 sm:px-6 lg:px-24 py-16 sm:py-20"
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}

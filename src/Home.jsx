@@ -11,7 +11,7 @@ export default function Home() {
   const [deleting, setDeleting] = useState(false);
   const [blink, setBlink] = useState(true);
 
-  const resumeLink = "https://docs.google.com/document/d/1Ra7brojP2TWd-X4QZQvSZSirbW1RrlGZ/preview";
+  const resumeLink = "https://drive.google.com/file/d/1RPSBSM54DOSNDnH9H0LWJunS7rsJVpcH/view?usp=sharing";
 
   /* Typing Effect */
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function Home() {
       id="home"
       className="min-h-screen w-full bg-black px-4 sm:px-6 lg:px-24 py-10 flex items-center "
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* LEFT – Profile Card */}
         <motion.div

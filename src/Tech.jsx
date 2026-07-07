@@ -92,13 +92,12 @@ const TechStack = () => {
             <span className="h-2 w-2 bg-green-400 rounded-full" />
             SKILLS & TOOLS
           </motion.span>
-        
-          <p className="text-gray-400 text-sm sm:text-base max-w-3xl mx-auto lg:mx-0">
-            Learned by coding all night and debugging all day. I focus on building
-            clean, scalable interfaces and reliable backend systems using modern
-            technologies.
-          </p>
-        </motion.div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-snug">
+             Learned by coding all night and debugging all day. 
+          </h2>
+
+                </motion.div>
 
         {/* Tech Sections */}
         {Object.entries(techStack).map(([category, items]) => (

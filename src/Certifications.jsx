@@ -134,9 +134,9 @@ const Certifications = () => {
   return (
     <section
       id="certifications"
-      className="bg-black px-4 sm:px-6 md:px-10 lg:px-20 py-16 sm:py-20"
+      className="bg-black px-4 sm:px-6 lg:px-24 py-16 sm:py-20"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -154,9 +154,11 @@ const Certifications = () => {
             CERTIFICATIONS
           </motion.span>
 
-          <p className="text-gray-400 text-xs sm:text-sm mt-3">
+                      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-snug">
             Professional Learning ({certifications.length})
-          </p>
+
+          </h2>
+
         </motion.div>
 
         {/* Grid */}

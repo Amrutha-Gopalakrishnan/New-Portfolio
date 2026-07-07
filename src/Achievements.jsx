@@ -6,6 +6,15 @@ import { Eye, X } from "lucide-react";
 import CertificatePNG from "./assets/Pictures/Form3.png";
 
 const achievements = [
+
+  {
+  title: "Statathon 2025–2026",
+  description:
+    "Awarded Runner-Up at Statathon 2025–2026, organized by the Ministry of Education's Innovation Cell (MIC), AICTE, in collaboration with GoIStats MoSPI.\nWorked with a dedicated team to transform an idea into a functional solution through continuous iteration, collaboration, and problem-solving while overcoming real-world development challenges.",
+  icon: <FaAward />,
+  date: "2025–2026",
+  tag: "Runner-Up"
+},
   {
   title: "Israel–India Global Innovators Hackathon",
   description:"Finalist in the India–Israel Global Innovators Hackathon 2026.\nCollaborated on innovation-driven solutions with global participants and industry experts.",
@@ -59,9 +68,9 @@ const Achievements = () => {
   return (
     <section
       id="achievements"
-      className="w-full bg-black px-4 sm:px-6 md:px-10 lg:px-24 py-16 sm:py-20"
+      className="w-full bg-black px-4 sm:px-6 lg:px-24 py-16 sm:py-20"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -79,9 +88,13 @@ const Achievements = () => {
             ACHIEVEMENTS
           </motion.span>
 
-          <p className="text-gray-400 text-xs sm:text-sm mt-3">
-            Awards & Recognition ({achievements.length})
-          </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-snug">
+                         Awards & Recognition ({achievements.length})
+
+          </h2>
+                    
+
+
         </motion.div>
 
         {/* Grid */}

@@ -17,7 +17,7 @@ const About = () => {
       id="about"
       className="min-h-screen bg-black px-4 sm:px-6 lg:px-24 py-24 flex items-center "
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-14 lg:gap-20 items-center">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-14 lg:gap-20 items-center">
 
         {/* LEFT – Profile Card */}
         <motion.div

@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 // Lazy load non-critical sections below the fold to improve LCP and bundle size
 const About = lazy(() => import('./About'));
 const Tech = lazy(() => import('./Tech'));
-const Projects = lazy(() => import('./Project'));
+const Projects = lazy(() => import('./components/Projects'));
 const Experience = lazy(() => import('./Experience'));
 const Certifications = lazy(() => import('./Certifications'));
 const Achievements = lazy(() => import('./Achievements'));
