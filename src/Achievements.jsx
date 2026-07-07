@@ -6,15 +6,6 @@ import { Eye, X } from "lucide-react";
 import CertificatePNG from "./assets/Pictures/Form3.png";
 
 const achievements = [
-
-  {
-  title: "Statathon 2025–2026",
-  description:
-    "Awarded Runner-Up at Statathon 2025–2026, organized by the Ministry of Education's Innovation Cell (MIC), AICTE, in collaboration with GoIStats MoSPI.\nWorked with a dedicated team to transform an idea into a functional solution through continuous iteration, collaboration, and problem-solving while overcoming real-world development challenges.",
-  icon: <FaAward />,
-  date: "2025–2026",
-  tag: "Runner-Up"
-},
   {
   title: "Israel–India Global Innovators Hackathon",
   description:"Finalist in the India–Israel Global Innovators Hackathon 2026.\nCollaborated on innovation-driven solutions with global participants and industry experts.",

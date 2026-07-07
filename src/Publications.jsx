@@ -147,7 +147,7 @@ const Publications = () => {
             >
               <div className="flex justify-between items-center mb-3">
                 <h2 className="text-white font-semibold text-lg">
-                  SAHAYAK — Research Publication
+                  Research Publication
                 </h2>
 
                 <div className="flex items-center gap-3">
