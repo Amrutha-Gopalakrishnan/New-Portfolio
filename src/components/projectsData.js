@@ -48,7 +48,7 @@ const projects = [
     image: CF,
     description:
       "A campus-focused lost-and-found system that helps students report, browse, and manage items with admin oversight and a simple reporting workflow.Designed and developed a secure web-based Lost & Found Management System as a final-year academic project to streamline reporting, tracking, and recovery of lost items within the college campus.Implemented college email-based authentication to restrict platform access to authorized students and staff, ensuring secure and authenticated user access. Developed features for reporting lost and found items, uploading item details and images, categorizing listings, and searching by category and location to improve item discoverability.",
-    tech: ["Frontend - React", "Backend - Supabase", "Database - Supabase(PostgreSQl), Image Processing"],
+    tech: ["Frontend - React", "Backend - Supabase", "Database - Supabase(PostgreSQl)", "Image Processing"],
     features: ["Authentication", "Image Upload", "Admin Dashboard", "Lost & Found", "Analytics Dashboard"],
     liveLink: "https://campusfindsrcas.vercel.app/",
   },
